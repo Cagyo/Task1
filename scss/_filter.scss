@@ -1,12 +1,13 @@
 $font-stack: Verdana, Geneva, sans-serif;
+$color: #25a7df;
 
 .selectedFilterItemUnderlined {
   font-family: $font-stack;
   font-size: 20px;
   font-weight: normal;
-  color: #25a7df;
+  color: $color;
   text-decoration: none;
-  border-bottom: 1px dashed #25a7df;
+  border-bottom: 1px dashed $color;
 }
 
 .selectedFilterItem {

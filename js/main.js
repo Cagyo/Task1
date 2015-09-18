@@ -1,7 +1,7 @@
 require.config({
     paths: {
         jquery: '../lib/vendor/jquery/dist/jquery.min',
-        underscore: '../lib/vendor/underscore/underscore',
+        underscore: '../lib/vendor/underscore/underscore-min',
         worker: 'Worker.min',
         application: 'Application.min'
     }
