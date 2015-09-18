@@ -1,0 +1,60 @@
+.fullOrderInfo {
+  display: none;
+}
+
+.orderInformation {
+  display: inline;
+  width: 1000px;
+}
+
+.itemsCol {
+  display: table-cell;
+  width: 560px;
+  padding-left: 5px;
+}
+
+.numberCol {
+  display: table-cell;
+  width: 110px;
+}
+
+.priceCol {
+  display: table-cell;
+  width: 240px;
+}
+
+.itemsColContent {
+  display: table-cell;
+  width: 560px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+.numberColContent {
+  display: table-cell;
+  width: 110px;
+  text-align: center;
+  font-weight: normal;
+  vertical-align: top;
+  padding-top: 20px;
+}
+
+.priceColContent {
+  display: table-cell;
+  width: 240px;
+  vertical-align: top;
+}
+
+.orderInfoField {
+  display: inline-block;
+  width: 215px;
+  color: #999999;
+  margin-right: 5px;
+  padding-left: 5px;
+  vertical-align: top;
+}
+
+.orderInfoFieldValues {
+  display: inline-block;
+  position: relative;
+}

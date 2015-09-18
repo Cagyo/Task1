@@ -1,0 +1,26 @@
+{
+  "name": "task1",
+  "version": "1.0",
+  "authors": [
+    "Oleksii Berliziev <oleksii.berliziev@engagepoint.com>"
+  ],
+  "description": "task 1",
+  "main": "index.html",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.20",
+    "underscore": "~1.8.3"
+  }
+}

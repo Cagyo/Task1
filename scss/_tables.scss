@@ -1,0 +1,135 @@
+$border-color: #cccccc;
+$border-style: solid 1px #cccccc;
+$backgroundColor1: #ffffff;
+$backgroundColor2: #f4fbfd;
+$tableText: #333333;
+$font-stack: Verdana, Geneva, sans-serif;
+
+@mixin background-img($color) {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($color), to(transparent));
+    background-image: -webkit-linear-gradient($color, transparent);
+    background-image: -moz-linear-gradient($color, transparent);
+    background-image: -o-linear-gradient($color, transparent);
+    background-image: linear-gradient($color, transparent);
+}
+@mixin background-row($firstColor, $secondColor) {
+    background-image: -moz-linear-gradient(left, $firstColor 0%, $secondColor 25%, $secondColor 75%, $firstColor 100%);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $firstColor), color-stop(25%, $secondColor), color-stop(75%, $secondColor), color-stop(100%, $firstColor));
+}
+
+.Table {
+    width: 900px;
+    display: block;
+    font-family: $font-stack;
+    font-size: 14px;
+    border-collapse: collapse;
+    padding-left: 15px;
+    color: $tableText;
+}
+
+.Title {
+    display: table-caption;
+    text-align: center;
+    font-weight: normal;
+    font-size: larger;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    border-top: solid;
+    border-width: thin;
+    border-color: $border-color;
+    font-family: $font-stack;
+    font-size: 14px;
+span {
+    font-weight: normal;
+}
+}
+
+.Row {
+    width: 900px;
+    display: table-row;
+    border-top: $border-style;
+    border-width: thin;
+    border-color: $border-color;
+    height: 50px;
+}
+
+.background {
+@include background-row($backgroundColor1,$backgroundColor2) {}
+}
+
+.one {
+    background-image: linear-gradient(to right, yellow, #996600);
+}
+
+.cell {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: $border-color;
+}
+
+.columnone {
+@extend .cell;
+    width: 215px;
+    height: 50px;
+    vertical-align: middle;
+    background: transparent;
+}
+
+.columnonebackground {
+    width: 215px;
+@extend .cell;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.columnone {
+&:before, &:after {
+               position: absolute;
+               content: "";
+@include background-img($border-color) {}
+left: -3px;
+right: -3px;
+}
+}
+
+.mainColumn{
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: middle;
+    height: 50px;
+}
+
+.columntwo {
+@extend .mainColumn;
+    width: 190px;
+}
+
+.columnthree {
+@extend .mainColumn;
+    width: 465px;
+}
+
+.selectedOrderRow {
+    display: table-row;
+    font-weight: normal;
+}
+
+.dottedBorder {
+    border-top: 1px dotted $border-color;
+}
+
+.tableText {
+    color: $tableText;
+}
+
+h2 {
+    font-family: $font-stack;
+    font-size: 20px;
+    font-weight: normal;
+    color: $tableText;
+}

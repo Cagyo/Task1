@@ -1,0 +1,18 @@
+$font-stack: Verdana, Geneva, sans-serif;
+
+.selectedFilterItemUnderlined {
+  font-family: $font-stack;
+  font-size: 20px;
+  font-weight: normal;
+  color: #25a7df;
+  text-decoration: none;
+  border-bottom: 1px dashed #25a7df;
+}
+
+.selectedFilterItem {
+  font-family: $font-stack;
+  font-size: 20px;
+  font-weight: normal;
+  color: #333333;
+  text-decoration: none;
+}
