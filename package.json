@@ -15,8 +15,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "bower install",
-    "postinstall": "grunt sass & grunt uglify & grunt cssmin & grunt pngmin"
+    "preinstall": "bower install",
+    "postinstall": "grunt sass & grunt uglify & grunt cssmin"
   },
   "repository": {
     "type": "git",
