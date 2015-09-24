@@ -18,6 +18,7 @@ define(["jquery","underscore","worker","order","orders","orderView"], function($
             var currentOrder=JSON.parse(JSON.stringify(json.orders[i]));
             currentOrder.items = [];
             currentOrder.id = i+1;
+            currentOrder.displaySet = false;
             orders.add(currentOrder,{validate:true});
             _.forEach(json.orders[i].items,function(item){
                 orders.get(i+1).addBook(item);
@@ -33,10 +34,6 @@ define(["jquery","underscore","worker","order","orders","orderView"], function($
             $('#ordersSection').append(orderView.el);
         });
 
-        //var ov = new OrderView({model: orders.get(2)});
-        //var ov = new OrderView({model: orders.get(3)});
-        //var ov = new OrderView({model: orders.get(4)});
-        var worker = new Worker();
         var filters = $("h2");
 
         function filterEverything(){

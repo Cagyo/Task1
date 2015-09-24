@@ -7,7 +7,7 @@ define(["jquery","underscore","backbone","text!templates/order.html","bookView",
             this.render();
             //this.listenTo(this.model, 'change:display', this.testMethod());
             //this.on( "change:display", this.hideAll, this.model);
-            this.listenTo(this.model, 'change:display', this.testMethod());
+            this.listenTo(this.model, 'change:displaySet', this.testMethod);
             //this.model.on('change:display', this.render, this);
         },
         hideAll: function (e) {
@@ -29,8 +29,8 @@ define(["jquery","underscore","backbone","text!templates/order.html","bookView",
 
         },
         testMethod: function(e){
-            //alert("worked!")
-            console.log("testMethod");
+            //console.log("testMethod");
+            this.render();
         },
         render: function(){
             //var itemsNodeList;
@@ -47,16 +47,6 @@ define(["jquery","underscore","backbone","text!templates/order.html","bookView",
             this.delegateEvents();
             return this;
 
-        },
-        setHandlers: function(){
-            var worker = new Worker();
-            function hideSection (section) {
-                    section.onclick = worker.hideOrderInfo
-                };
-
-                //_.each($('.currentOrderSection'),hideSection);
-                //_.each($('.completedOrderSection'),hideSection);
-                //_.each($('.cancelledOrderSection'),hideSection);
         }
     });
     return OrderView;

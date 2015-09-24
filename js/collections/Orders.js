@@ -12,6 +12,10 @@ define(["jquery","underscore","backbone","order"],function($,_,Backbone,Order) {
                 this.models.forEach(function (model) {
                     if(currentModel.get("id") !== model.get("id"))
                         model.attributes.display = "none";
+                    if(model.get("displaySet") === true)
+                        model.set("displaySet", false);
+                    else
+                        model.set("displaySet", true);
                 });
 
         },

@@ -12,6 +12,7 @@ define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book){
                     telephone: "",
                     paymentMethod: 0,
                     display: false,
+                    displaySet: false,
                     summary: 0,
                     priceDelivery: 0,
                     receivedBonuses: 0,
