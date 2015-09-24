@@ -83,6 +83,7 @@ module.exports = function(grunt) {
   // We've set up each task's configuration.
   // Now actually load the tasks.
   // This will do a lookup similar to node's require() function.
+  grunt.registerTask('default', ['sass', 'uglify', 'cssmin']);
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');

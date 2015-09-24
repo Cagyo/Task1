@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="css/style.min.css">
-    <script data-main="js/main.min" type="text/javascript" src="lib/vendor/requirejs/require.js"></script>
+    <script data-main="js/main" type="text/javascript" src="lib/vendor/requirejs/require.js"></script>
 
 </head>
 <body>
@@ -35,279 +35,66 @@
             <p>Текущий статус</p>
         </div>
     </div>
-    <section id="order1" class="cancelledOrderSection">
-        <div class="Row background cancelledOrder">
-            <div class="columnonebackground">
-                <p>9 июля 2012</p>
-            </div>
-            <div class="columntwo">
-                <p>№ 0570</p>
-            </div>
-            <div class="columnthree">
-                <div style="vertical-align: middle"><img src="images/cancelled-icon.png"/> Отменен
-                    <img class="openCloseIcon" id="arroworder1"
-                            src="images/expand-closed-icon.png" align="right"/></div>
-            </div>
-        </div>
-        <section id="fullorder1" class="fullOrderInfo">
-            <div class="clear15"></div>
-            <div class="orderInformation">
-                <div class="orderInfoField">
-                    Имя получателя: <br/>
-                    Электронная почта: <br/>
-                    Доставка: <br/>
-                    Оплата: <br/>
-                </div>
-                <div class="orderInfoFieldValues">г. Киев, ул. Саксаганского, 65, кв. 11<br/>
-                    +38 050 123-45-56<br/>
-                    Курьером лично в руки. Адрес: г. Киев, ул. Саксаганского, 65, кв. 11<br/>
-                    Наличными при получении<br/>
-                </div>
-            </div>
-            <div class="clear20"></div>
+<div id="ordersSection"></div>
+    <!--<section id="order2" class="currentOrderSection">-->
+        <!--<div class="Row currentOrder">-->
+            <!--<div class="columnone">-->
+                <!--<p>3 июля 2012</p>-->
+            <!--</div>-->
+            <!--<div class="columntwo">-->
+                <!--<p>№ ME0017681</p>-->
+            <!--</div>-->
+            <!--<div class="columnthree">-->
+                <!--<div style="vertical-align: middle"><img src="images/car-icon.png"/> Отправлен курьерской службой-->
+                    <!--<img class="openCloseIcon" id="arroworder2"-->
+                            <!--src="images/expand-closed-icon.png" style="vertical-align: middle" align="right"/></div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-            <div class="selectedOrderRow" style="font-weight: bold;">
-                <div class="itemsCol">
-                    <p>Товары в заказе</p>
-                </div>
-                <div class="numberCol">
-                    <p>Колличество</p>
-                </div>
-                <div class="price">
-                    <div style="vertical-align: middle; text-align: right;padding-right: 10px;">Цена</div>
-                </div>
-            </div>
+        <!--<div id="fullOrderBlock2">-->
 
-            <div class="selectedOrderRow dottedBorder">
-                <div class="itemsColContent">
+        <!--</div>-->
+    <!--</section>-->
 
-                    <div style="padding-top: 20px;vertical-align: top;">
-                        <img src="images/itemone.png"/>
+    <!--<section id="order3" class="completedOrderSection">-->
+        <!--<div class="Row background completedOrder">-->
+            <!--<div class="columnone">-->
+                <!--<p>17 мая 2012</p>-->
+            <!--</div>-->
+            <!--<div class="columntwo">-->
+                <!--<p>№ 0570</p>-->
+            <!--</div>-->
+            <!--<div class="columnthree">-->
+                <!--<div style="vertical-align: middle"><img src="images/delivered-icon.png"/> Доставлен-->
+                    <!--<img class="openCloseIcon" id="arroworder3"-->
+                            <!--src="images/expand-closed-icon.png" style="vertical-align: middle" align="right"/></div>-->
+            <!--</div>-->
 
-                        <div style="position: absolute; margin-left: -8px;margin-top: -15px;"><img
-                                src="images/book-icon.png"/></div>
-                        <div style="display: inline-block; vertical-align: top;padding-left: 5px;width: 310px;">
-                            <span style="vertical-align: top;font-size: 12px;color: #446699">Девушка c татуировкой дракона</span>
-                            <span style="vertical-align: top;font-size: 12px;">Стиг Ларссон</span><br/>
-                            <span style="color: #f15e00;font-size: 12px;"><b>138 грн.</b></span></div>
-                    </div>
-                </div>
-                <div class="numberColContent">
-                    <span>1</span>
-                </div>
-                <div class="priceColContent">
-                    <div style="padding-top:20px;text-align: right;padding-right: 10px;"><b><span
-                            style="color: #f15e00;">138 грн.</span></b>
-                    </div>
-                </div>
-            </div>
+        <!--</div>-->
+        <!--<div id="fullOrderBlock3">-->
 
-            <div class="selectedOrderRow" style="font-weight: normal;border-bottom: 1px dotted #cccccc;">
-                <div class="itemsColContent">
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section id="order4" class="completedOrderSection">-->
+        <!--<div class="Row background completedOrder" style="border-bottom: solid 1px #cccccc;">-->
+            <!--<div class="columnone">-->
+                <!--<p>29 февраля 2012</p>-->
+            <!--</div>-->
+            <!--<div class="columntwo">-->
+                <!--<p>№ ME0017681</p>-->
+            <!--</div>-->
+            <!--<div class="columnthree">-->
+                <!--<div><img src="images/delivered-icon.png"/> Доставлен-->
+                    <!--<img id="arroworder4" class="openCloseIcon"-->
+                         <!--src="images/expand-closed-icon.png"-->
+                         <!--style="vertical-align: middle" align="right"/>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div id="fullOrderBlock4">-->
 
-                    <div style="padding-top: 20px;vertical-align: top;">
-                        <img src="images/itemtwo.png"/>
-
-                        <div style="position: absolute; margin-left: -8px;margin-top: -15px;"><img
-                                src="images/book-icon.png"/></div>
-                        <div style="display: inline-block; vertical-align: top;padding-left: 5px;width: 300px;">
-                            <span style="vertical-align: top;font-size: 12px;color: #446699">Девушка, которая взрывала воздушные замки</span>
-                            <span style="vertical-align: top;font-size: 12px;">Стиг Ларссон</span><br/>
-                            <span style="color: #999999;font-size: 12px;"><strike>170 грн.</strike></span><br/>
-                            <span style="color: #f15e00;font-size: 12px;"><b>138 грн.</b></span></div>
-                    </div>
-                </div>
-                <div class="numberColContent">
-                    <span>1</span>
-                </div>
-                <div class="priceColContent">
-                    <div style="padding-top:20px;text-align: right;padding-right: 10px;"><b><span
-                            style="color: #f15e00;">138 грн.</span></b>
-                    </div>
-                </div>
-            </div>
-
-            <div style="clear:both; "></div>
-            <div class="orderInformation"
-                 style="text-align: right;border-bottom: 1px dotted #cccccc;">
-                <div style="display: block;padding-top: 15px;padding-right: 10px;">Доставка: <span
-                        style="color: #f15e00;"><b>20
-                    грн.</b></span>
-                </div>
-            </div>
-
-            <div style="clear:both; height: 20px;border-bottom: 1px dotted #cccccc;"></div>
-
-            <div class="selectedOrderRow" style="font-weight: normal;">
-                <div class="itemsColContent" style="padding-top: 17px;">
-                <span style="background-color: #edf1f2;padding: 5px 10px 5px 10px;"><b>+38
-                    бонусов</b> за этот заказ</span>
-                </div>
-                <div class="numberColContent">
-
-                </div>
-                <div class="priceColContent" style="text-align:right; padding-top: 17px;padding-right: 10px;">
-                    Сумма заказа: <span style="color: #f15e00;"><b>182 грн.</b></span>
-                </div>
-            </div>
-
-            <div class="clear20" style="padding-top: 50px;"></div>
-        </section>
-    </section>
-    <section id="order2" class="currentOrderSection">
-        <div class="Row currentOrder">
-            <div class="columnone">
-                <p>3 июля 2012</p>
-            </div>
-            <div class="columntwo">
-                <p>№ ME0017681</p>
-            </div>
-            <div class="columnthree">
-                <div style="vertical-align: middle"><img src="images/car-icon.png"/> Отправлен курьерской службой
-                    <img class="openCloseIcon" id="arroworder2"
-                            src="images/expand-closed-icon.png" style="vertical-align: middle" align="right"/></div>
-            </div>
-        </div>
-
-        <section id="fullorder2" class="fullOrderInfo">
-            <div class="clear15"></div>
-            <div class="orderInformation">
-                <div class="orderInfoField">
-                    Имя получателя: <br/>
-                    Электронная почта: <br/>
-                    Доставка: <br/>
-                    Оплата: <br/>
-                </div>
-                <div class="orderInfoFieldValues">г. Киев, ул. Саксаганского, 65, кв. 11<br/>
-                    +38 050 123-45-56<br/>
-                    Курьером лично в руки. Адрес: г. Киев, ул. Саксаганского, 65, кв. 11<br/>
-                    Наличными при получении<br/>
-                </div>
-            </div>
-            <div class="clear20"></div>
-
-            <div class="selectedOrderRow" style="font-weight: bold;">
-                <div class="itemsCol">
-                    <p>Товары в заказе</p>
-                </div>
-                <div class="numberCol">
-                    <p>Колличество</p>
-                </div>
-                <div class="price">
-                    <div style="vertical-align: middle; text-align: right;padding-right: 10px;">Цена</div>
-                </div>
-            </div>
-
-            <div class="selectedOrderRow dottedBorder">
-                <div class="itemsColContent">
-
-                    <div style="padding-top: 20px;vertical-align: top;">
-                        <img src="images/itemone.png"/>
-
-                        <div style="position: absolute; margin-left: -8px;margin-top: -15px;"><img
-                                src="images/book-icon.png"/></div>
-                        <div style="display: inline-block; vertical-align: top;padding-left: 5px;width: 310px;">
-                            <span style="vertical-align: top;font-size: 12px;color: #446699">Девушка c татуировкой дракона</span>
-                            <span style="vertical-align: top;font-size: 12px;">Стиг Ларссон</span><br/>
-                            <span style="color: #f15e00;font-size: 12px;"><b>138 грн.</b></span></div>
-                    </div>
-                </div>
-                <div class="numberColContent">
-                    <span>1</span>
-                </div>
-                <div class="priceColContent">
-                    <div style="padding-top:20px;text-align: right;padding-right: 10px;"><b><span
-                            style="color: #f15e00;">138 грн.</span></b>
-                    </div>
-                </div>
-            </div>
-
-            <div class="selectedOrderRow" style="font-weight: normal;border-bottom: 1px dotted #cccccc;">
-                <div class="itemsColContent">
-
-                    <div style="padding-top: 20px;vertical-align: top;">
-                        <img src="images/itemtwo.png"/>
-
-                        <div style="position: absolute; margin-left: -8px;margin-top: -15px;"><img
-                                src="images/book-icon.png"/></div>
-                        <div style="display: inline-block; vertical-align: top;padding-left: 5px;width: 300px;">
-                            <span style="vertical-align: top;font-size: 12px;color: #446699">Девушка, которая взрывала воздушные замки</span>
-                            <span style="vertical-align: top;font-size: 12px;">Стиг Ларссон</span><br/>
-                            <span style="color: #999999;font-size: 12px;"><strike>170 грн.</strike></span><br/>
-                            <span style="color: #f15e00;font-size: 12px;"><b>138 грн.</b></span></div>
-                    </div>
-                </div>
-                <div class="numberColContent">
-                    <span>1</span>
-                </div>
-                <div class="priceColContent">
-                    <div style="padding-top:20px;text-align: right;padding-right: 10px;"><b><span
-                            style="color: #f15e00;">138 грн.</span></b>
-                    </div>
-                </div>
-            </div>
-
-            <div style="clear:both; "></div>
-            <div class="orderInformation"
-                 style="text-align: right;border-bottom: 1px dotted #cccccc;">
-                <div style="display: block;padding-top: 15px;padding-right: 10px;">Доставка: <span
-                        style="color: #f15e00;"><b>20
-                    грн.</b></span>
-                </div>
-            </div>
-
-            <div style="clear:both; height: 20px;border-bottom: 1px dotted #cccccc;"></div>
-
-            <div class="selectedOrderRow" style="font-weight: normal;">
-                <div class="itemsColContent" style="padding-top: 17px;">
-                <span style="background-color: #edf1f2;padding: 5px 10px 5px 10px;"><b>+38
-                    бонусов</b> за этот заказ</span>
-                </div>
-                <div class="numberColContent">
-
-                </div>
-                <div class="priceColContent" style="text-align:right; padding-top: 17px;padding-right: 10px;">
-                    Сумма заказа: <span style="color: #f15e00;"><b>182 грн.</b></span>
-                </div>
-            </div>
-
-            <div class="clear20" style="padding-top: 50px;"></div>
-        </section>
-    </section>
-
-    <section id="order3" class="completedOrderSection">
-        <div class="Row background completedOrder">
-            <div class="columnone">
-                <p>17 мая 2012</p>
-            </div>
-            <div class="columntwo">
-                <p>№ 0570</p>
-            </div>
-            <div class="columnthree">
-                <div style="vertical-align: middle"><img src="images/delivered-icon.png"/> Доставлен
-                    <img class="openCloseIcon" id="arroworder3"
-                            src="images/expand-closed-icon.png" style="vertical-align: middle" align="right"/></div>
-            </div>
-
-        </div>
-    </section>
-    <section id="order4" class="completedOrderSection">
-        <div class="Row background completedOrder" style="border-bottom: solid 1px #cccccc;">
-            <div class="columnone">
-                <p>29 февраля 2012</p>
-            </div>
-            <div class="columntwo">
-                <p>№ ME0017681</p>
-            </div>
-            <div class="columnthree">
-                <div><img src="images/delivered-icon.png"/> Доставлен
-                    <img id="arroworder4" class="openCloseIcon"
-                         src="images/expand-closed-icon.png"
-                         style="vertical-align: middle" align="right"/>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!--</div>-->
+    <!--</section>-->
 </div>
 <script>
 

@@ -1,0 +1,99 @@
+<!--<script type="text/template" id="order-list-template">-->
+<% if(state === 0) {%>
+<section id="order<%= id %>" class="cancelledOrderSection">
+    <div class="Row background cancelledOrder">
+        <% } else if(state === 1){ %>
+        <section id="order<%= id %>" class="currentOrderSection">
+            <div class="Row background currentOrder">
+        <% } else if(state === 2){ %>
+                <section id="order<%= id %>" class="completedOrderSection">
+                    <div class="Row background completedOrder">
+        <% } %>
+        <div class="columnonebackground">
+            <p><%= date %></p>
+        </div>
+        <div class="columntwo">
+            <p>№ <%= orderNumber %></p>
+        </div>
+        <div class="columnthree">
+            <% if(state === 0) {%>
+            <div style="vertical-align: middle"><img src="images/cancelled-icon.png"/> Отменен
+                    <% } else if(state === 1){ %>
+            <div style="vertical-align: middle"><img src="images/car-icon.png"/> Отправлен курьерской службой
+                            <% } else if(state === 2){ %>
+            <div style="vertical-align: middle"><img src="images/delivered-icon.png"/> Доставлен
+                                    <% } %>
+
+                <img class="openCloseIcon" id="arroworder<%= id %>"
+                     src="images/expand-closed-icon.png" align="right"/></div>
+        </div>
+    </div>
+
+
+<section id="fullorder<%= id %>" class="fullOrderInfo" style="display: <%= display %>;">
+    <div class="clear15"></div>
+    <div class="orderInformation">
+        <div class="orderInfoField">
+            Имя получателя: <br/>
+            Электронная почта: <br/>
+            Доставка: <br/>
+            Оплата: <br/>
+        </div>
+        <div class="orderInfoFieldValues"><%= name %><br/>
+            <%= telephone %><br/>
+            Курьером лично в руки. <%= address%><br/>
+            <% if(paymentMethod===0){ %>
+                Наличными при получении
+            <% } else { %>
+                Безналичными
+            <% } %>
+            <br/>
+        </div>
+    </div>
+    <div class="clear20"></div>
+
+    <div class="selectedOrderRow" style="font-weight: bold;">
+        <div class="itemsCol">
+            <p>Товары в заказе</p>
+        </div>
+        <div class="numberCol">
+            <p>Колличество</p>
+        </div>
+        <div class="price">
+            <div style="vertical-align: middle; text-align: right;padding-right: 10px;">Цена</div>
+        </div>
+    </div>
+
+
+    <div id="items-list-<%= id %>">
+
+    </div>
+
+    <div style="clear:both; "></div>
+    <div class="orderInformation"
+         style="text-align: right;border-bottom: 1px dotted #cccccc;">
+        <div style="display: block;padding-top: 15px;padding-right: 10px;">Доставка: <span
+                style="color: #f15e00;"><b><%= priceDelivery %>
+            <%= currency %>.</b></span>
+        </div>
+    </div>
+
+    <div style="clear:both; height: 20px;border-bottom: 1px dotted #cccccc;"></div>
+
+    <div class="selectedOrderRow" style="font-weight: normal;">
+        <div class="itemsColContent" style="padding-top: 17px;">
+                <span style="background-color: #edf1f2;padding: 5px 10px 5px 10px;"><b>+<%= receivedBonuses %>
+                    бонусов</b> за этот заказ</span>
+        </div>
+        <div class="numberColContent">
+
+        </div>
+        <div class="priceColContent" style="text-align:right; padding-top: 17px;padding-right: 10px;">
+            Сумма заказа: <span style="color: #f15e00;"><b><%= summary %> <%= currency %>.</b></span>
+        </div>
+    </div>
+
+    <div class="clear20" style="padding-top: 50px;"></div>
+</section>
+</section>
+<!--</script>-->
