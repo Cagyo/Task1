@@ -26,7 +26,7 @@ define(["jquery","underscore","backbone","text!templates/order.html","bookView",
             return "Отменен";
         }
         else if(state === 1){
-            return "Отправлен в курьерскую службу";
+            return "Отправлен курьерской службой";
         }
         else {
             return "Завершен";
@@ -38,6 +38,14 @@ define(["jquery","underscore","backbone","text!templates/order.html","bookView",
         }
         else {
             return "Безналичными";
+        }
+    });
+    Handlebars.registerHelper('setArrowImage', function(display) {
+        if(display === "block") {
+            return "images/expand-opened-icon.png";
+        }
+        else {
+            return "images/expand-closed-icon.png";
         }
     });
     var OrderView = Backbone.View.extend({
@@ -54,9 +62,13 @@ define(["jquery","underscore","backbone","text!templates/order.html","bookView",
         orderId: -1,
         changeDisplay: function (e) {
             if(this.model.get("display") !== "block")
+            {
                 this.model.set("display","block");
+            }
             else
+            {
                 this.model.set("display","none");
+            }
             this.render();
         },
 

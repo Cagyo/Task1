@@ -4,8 +4,7 @@
   "description": "Task 1",
   "main": "index.html",
   "dependencies": {
-    "grunt-cli": "^0.1.13",
-    "handlebars": "^4.0.3"
+    "grunt-cli": "^0.1.13"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
