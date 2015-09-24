@@ -22,6 +22,6 @@ define(["jquery","underscore","backbone"],function($,_,Backbone){
                 });
             }
         });
-        return Book;//{initialize: initialize};
+        return Book;
     }
 );

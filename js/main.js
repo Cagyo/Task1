@@ -3,6 +3,7 @@ require.config({
         jquery: '../lib/vendor/jquery/dist/jquery',
         underscore: '../lib/vendor/underscore/underscore',
         backbone: '../lib/vendor/backbone/backbone',
+        handlebars: '../lib/vendor/handlebars/handlebars',
         worker: 'Worker',
         application: 'Application',
         order: 'models/Order',

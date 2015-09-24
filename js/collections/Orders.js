@@ -25,8 +25,6 @@ define(["jquery","underscore","backbone","order"],function($,_,Backbone,Order) {
                     return order.get("state") === state;
                 });
             return res;
-            //var result = _.where(orders, {state: 0})
-
         }
     });
     return Orders;

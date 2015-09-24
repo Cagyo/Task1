@@ -1,6 +1,5 @@
 define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book){
 
-        //var initialize = function() {
             var Order = Backbone.Model.extend({
                 validate:true,
                 defaults: {
@@ -54,22 +53,8 @@ define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book){
                     this.on("invalid", function(model, error){
                         alert( error );
                     });
-                    //this.bind('validated:invalid', function(model, errors) {
-                    //    // do something
-                    //    alert( error );
-                    //});
                 }
             });
-
-
-            //var orders = new Orders();
-
-            //var usrModel = new UserModel();
-            //console.log(usrModel.get("name"));
-            //usrModel.changeName("qwerty");
-            //console.log(usrModel.get("name"));
-            //usrModel.set({name:'qwerty', action: 'default',id:-100});
-        //};
-        return Order;//{initialize: initialize};
+        return Order;
     }
 );
