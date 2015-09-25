@@ -25,7 +25,7 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worke
         },
 
         events: {
-            'click .Row': 'changeDisplay' //todo: clicks handler only on short orders
+            'click .Row': 'changeDisplay'
         },
         reRender: function(e){
             this.render();
@@ -36,10 +36,10 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worke
             this.orderId = _.clone(id);
             this.model.attributes.items.forEach(function(item){
 
-                var element = $('#items-list-'+id);
+                var element = this.$el.find('#items-list-'+id);
                 var node = new BookView({model: item.toJSON()});
                     element.append(node.el);
-            });
+            },this);
             return this;
         }
     });
