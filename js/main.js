@@ -4,6 +4,7 @@ require.config({
         underscore: '../lib/vendor/underscore/underscore',
         backbone: '../lib/vendor/backbone/backbone',
         handlebars: '../lib/vendor/handlebars/handlebars',
+        hbs: '../lib/vendor/require-handlebars-plugin/hbs',
         worker: 'Worker',
         application: 'Application',
         order: 'models/Order',
@@ -11,7 +12,14 @@ require.config({
         orderView: 'views/order',
         book: 'models/Book',
         books: 'collections/Books',
-        bookView: 'views/book'
+        bookView: 'views/book',
+        filterView: 'views/filter',
+        orderListView: 'views/orderList'
+    },
+    hbs: { // optional
+        helpers: true,            // default: true
+        templateExtension: 'hbs', // default: 'hbs'
+        partialsUrl: ''           // default: ''
     }
 });
 

@@ -1,0 +1,48 @@
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['order.hbs'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<!--<script type=\"text/template\" id=\"order-list-template\">-->\r\n\r\n<section id=\"order"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "\" class=\""
+    + alias4((helpers.getClassState || (depth0 && depth0.getClassState) || alias2).call(alias1,(depth0 != null ? depth0.state : depth0),{"name":"getClassState","hash":{},"data":data}))
+    + "Section\">\r\n    <div class=\"Row background "
+    + alias4((helpers.getClassState || (depth0 && depth0.getClassState) || alias2).call(alias1,(depth0 != null ? depth0.state : depth0),{"name":"getClassState","hash":{},"data":data}))
+    + "\">\r\n\r\n        <div class=\"columnonebackground\">\r\n            <p>"
+    + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
+    + "</p>\r\n        </div>\r\n        <div class=\"columntwo\">\r\n            <p>№ "
+    + alias4(((helper = (helper = helpers.orderNumber || (depth0 != null ? depth0.orderNumber : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"orderNumber","hash":{},"data":data}) : helper)))
+    + "</p>\r\n        </div>\r\n        <div class=\"columnthree\">\r\n\r\n            <div style=\"vertical-align: middle\"><img src=\""
+    + alias4((helpers.getPictureState || (depth0 && depth0.getPictureState) || alias2).call(alias1,(depth0 != null ? depth0.state : depth0),{"name":"getPictureState","hash":{},"data":data}))
+    + "\"/> "
+    + alias4((helpers.getTextState || (depth0 && depth0.getTextState) || alias2).call(alias1,(depth0 != null ? depth0.state : depth0),{"name":"getTextState","hash":{},"data":data}))
+    + "\r\n\r\n                <img class=\"openCloseIcon\" id=\"arroworder<%= id %>\"\r\n                     src=\""
+    + alias4((helpers.setArrowImage || (depth0 && depth0.setArrowImage) || alias2).call(alias1,(depth0 != null ? depth0.display : depth0),{"name":"setArrowImage","hash":{},"data":data}))
+    + "\" align=\"right\"/></div>\r\n        </div>\r\n    </div>\r\n\r\n\r\n<section id=\"fullorder"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "\" class=\"fullOrderInfo\" style=\"display: "
+    + alias4(((helper = (helper = helpers.display || (depth0 != null ? depth0.display : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"display","hash":{},"data":data}) : helper)))
+    + ";\">\r\n    <div class=\"clear15\"></div>\r\n    <div class=\"orderInformation\">\r\n        <div class=\"orderInfoField\">\r\n            Имя получателя: <br/>\r\n            Электронная почта: <br/>\r\n            Доставка: <br/>\r\n            Оплата: <br/>\r\n        </div>\r\n        <div class=\"orderInfoFieldValues\">"
+    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + "<br/>\r\n            "
+    + alias4(((helper = (helper = helpers.telephone || (depth0 != null ? depth0.telephone : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"telephone","hash":{},"data":data}) : helper)))
+    + "<br/>\r\n            Курьером лично в руки. "
+    + alias4(((helper = (helper = helpers.address || (depth0 != null ? depth0.address : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"address","hash":{},"data":data}) : helper)))
+    + "<br/>\r\n            "
+    + alias4((helpers.getPaymentMethod || (depth0 && depth0.getPaymentMethod) || alias2).call(alias1,(depth0 != null ? depth0.paymentMethod : depth0),{"name":"getPaymentMethod","hash":{},"data":data}))
+    + "\r\n            <br/>\r\n        </div>\r\n    </div>\r\n    <div class=\"clear20\"></div>\r\n\r\n    <div class=\"selectedOrderRow\" style=\"font-weight: bold;\">\r\n        <div class=\"itemsCol\">\r\n            <p>Товары в заказе</p>\r\n        </div>\r\n        <div class=\"numberCol\">\r\n            <p>Колличество</p>\r\n        </div>\r\n        <div class=\"price\">\r\n            <div style=\"vertical-align: middle; text-align: right;padding-right: 10px;\">Цена</div>\r\n        </div>\r\n    </div>\r\n\r\n\r\n    <div id=\"items-list-"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "\">\r\n\r\n    </div>\r\n\r\n    <div style=\"clear:both; \"></div>\r\n    <div class=\"orderInformation\"\r\n         style=\"text-align: right;border-bottom: 1px dotted #cccccc;\">\r\n        <div style=\"display: block;padding-top: 15px;padding-right: 10px;\">Доставка: <span\r\n                style=\"color: #f15e00;\"><b>"
+    + alias4(((helper = (helper = helpers.priceDelivery || (depth0 != null ? depth0.priceDelivery : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"priceDelivery","hash":{},"data":data}) : helper)))
+    + "\r\n            "
+    + alias4(((helper = (helper = helpers.currency || (depth0 != null ? depth0.currency : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"currency","hash":{},"data":data}) : helper)))
+    + ".</b></span>\r\n        </div>\r\n    </div>\r\n\r\n    <div style=\"clear:both; height: 20px;border-bottom: 1px dotted #cccccc;\"></div>\r\n\r\n    <div class=\"selectedOrderRow\" style=\"font-weight: normal;\">\r\n        <div class=\"itemsColContent\" style=\"padding-top: 17px;\">\r\n                <span style=\"background-color: #edf1f2;padding: 5px 10px 5px 10px;\"><b>+"
+    + alias4(((helper = (helper = helpers.receivedBonuses || (depth0 != null ? depth0.receivedBonuses : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"receivedBonuses","hash":{},"data":data}) : helper)))
+    + "\r\n                    бонусов</b> за этот заказ</span>\r\n        </div>\r\n        <div class=\"numberColContent\">\r\n\r\n        </div>\r\n        <div class=\"priceColContent\" style=\"text-align:right; padding-top: 17px;padding-right: 10px;\">\r\n            Сумма заказа: <span style=\"color: #f15e00;\"><b>"
+    + alias4(((helper = (helper = helpers.summary || (depth0 != null ? depth0.summary : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"summary","hash":{},"data":data}) : helper)))
+    + " "
+    + alias4(((helper = (helper = helpers.currency || (depth0 != null ? depth0.currency : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"currency","hash":{},"data":data}) : helper)))
+    + ".</b></span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"clear20\" style=\"padding-top: 50px;\"></div>\r\n</section>\r\n</section>\r\n<!--</script>-->";
+},"useData":true});
+})();

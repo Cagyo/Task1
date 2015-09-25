@@ -1,4 +1,4 @@
-define(["jquery","underscore","worker","order","orders","orderView"], function($,_,Worker,Order,Orders,OrderView){
+define(["jquery","underscore","worker","order","orders","orderView","filterView"], function($,_,Worker,Order,Orders,OrderView, FilterView){
 
     (function(){
         STATES = {CANCELLED: 0, INPROGRESS: 1, COMPLETED: 2};
@@ -35,6 +35,9 @@ define(["jquery","underscore","worker","order","orders","orderView"], function($
             $("#"+this.id).children("a:eq(0)").attr("class","selectedFilterItem");
 
         }
+
+        var filterView = new FilterView();
+        $("#filter").append(filterView.el);
 
         var data;
         $.ajaxSetup({

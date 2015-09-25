@@ -21,6 +21,7 @@
   "dependencies": {
     "handlebars": "~4.0.3",
     "jquery": "~2.1.1",
+    "require-handlebars-plugin": "~1.0.0",
     "requirejs": "~2.1.20",
     "underscore": "~1.8.3"
   }

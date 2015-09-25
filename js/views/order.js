@@ -1,5 +1,5 @@
-define(["jquery","underscore","backbone","text!templates/order.html","bookView",'worker',"handlebars"],function($,_,Backbone,templateFile, BookView, Worker, Handlebars) {
-    Handlebars.registerHelper('getClassState', function(state) {
+define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worker',"handlebars","templates/helpers/getClassState"],function($,_,Backbone,templateFile, BookView, Worker, Handlebars, getClassState) {
+    /*Handlebars.registerHelper('getClassState', function(state) {
         if(state === 0) {
             return "cancelledOrder";
         }
@@ -47,9 +47,9 @@ define(["jquery","underscore","backbone","text!templates/order.html","bookView",
         else {
             return "images/expand-closed-icon.png";
         }
-    });
+    });*/
     var OrderView = Backbone.View.extend({
-        template: Handlebars.compile(templateFile),
+        template: templateFile,//Handlebars.compile(templateFile),
         initialize: function(){
 
             this.render();

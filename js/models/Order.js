@@ -38,7 +38,7 @@ define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book){
                 },
 
                 addBook: function (bookInformation) {
-                    this.attributes.items.push(new Book(bookInformation));
+                    this.attributes.items.push(new Book(bookInformation)); //todo: collection
                 },
 
                 validate: function(attributes){
