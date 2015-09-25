@@ -8,29 +8,8 @@ define(["jquery","underscore","worker","order","orders","orderView","filterView"
         $("#filter").append(filterView.el);
         filterView.setHandlers();
 
-        var data;
-        $.ajaxSetup({
-            async: false
-        });
-
-        var json;
-        $.getJSON("http://localhost:63342/task1/json/orders.json", data, function(result) {
-            json = result;
-        });
-
-        orders = new Orders();//todo: migrate to collection
-        for(var i =0; i<json.orders.length; i++)
-        {
-            var currentOrder=JSON.parse(JSON.stringify(json.orders[i]));
-            currentOrder.items = new Books;
-            currentOrder.id = i+1;
-            currentOrder.displaySet = false;
-            orders.add(currentOrder,{validate:true});
-            _.forEach(json.orders[i].items,function(item){
-                orders.get(i+1).addBook(item);
-            });
-            orders.get(i+1).orderFinished();
-        }
+        orders = new Orders();
+        orders.fillFromJSON("http://localhost:63342/task1/json/orders.json");
 
         var view = new OrderListView({collection: orders});
 
