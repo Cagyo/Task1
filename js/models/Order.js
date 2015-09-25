@@ -1,4 +1,4 @@
-define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book){
+define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,Book, Books){
 
             var Order = Backbone.Model.extend({
                 validate:true,
@@ -15,7 +15,7 @@ define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book){
                     summary: 0,
                     priceDelivery: 0,
                     receivedBonuses: 0,
-                    items: []
+                    items: new Books
                 },
                 setState: function(state){
                     this.state = state;
@@ -27,7 +27,7 @@ define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book){
 
                 getSum: function(){
                     var sum = 0;
-                    _.forEach(this.attributes.items, function (item) {
+                    this.attributes.items.forEach(function (item) {
                         sum += item.get("price");
                     });
                     return sum;
@@ -38,7 +38,7 @@ define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book){
                 },
 
                 addBook: function (bookInformation) {
-                    this.attributes.items.push(new Book(bookInformation)); //todo: collection
+                    this.attributes.items.add(bookInformation); //todo: collection
                 },
 
                 validate: function(attributes){

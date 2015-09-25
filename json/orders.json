@@ -35,12 +35,12 @@
           "count": 1
         },
         {
-          "title": "Девушка c татуировкой дракона",
-          "author": "Стиг Ларссон",
+          "title": "Не книга",
+          "author": "Автор",
           "price": 138,
           "currency": "грн",
           "discount": 0,
-          "isBook": true,
+          "isBook": false,
           "pictureUrl": "images/itemone.png",
           "count": 1
         },
