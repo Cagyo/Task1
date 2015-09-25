@@ -15,7 +15,8 @@ define(["jquery","underscore","backbone","book","books","templates/helpers/price
                     summary: 0,
                     priceDelivery: 0,
                     receivedBonuses: 0,
-                    items: new Books
+                    items: new Books,
+                    deliveryMethod: 0
                 },
                 setState: function(state){
                     this.state = state;

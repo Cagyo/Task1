@@ -3,6 +3,7 @@ define(["jquery","underscore","orders","filterView","orderListView"], function($
     (function(){
         STATES = {CANCELLED: 0, INPROGRESS: 1, COMPLETED: 2};
         PAYMENTMETHODS = {CASH: 0, CASHLESS: 1};
+        DELIVERYMETHOD = {self: 0, delivery: 1};
 
         var filterView = new FilterView();
         $("#filter").append(filterView.el);
