@@ -11,13 +11,20 @@ module.exports = function(grunt) {
     // Grunt tasks are associated with specific properties.
     // these names generally match their npm package name.
     watch: {
-      scripts: {
+      css: {
         files: 'scss/*.scss',
         tasks: ['sass'],
         options: {
-          debounceDelay: 250,
-        },
+          debounceDelay: 250
+        }
       },
+      cssmin: {
+        files: 'css/style.css',
+        tasks: ['cssmin'],
+        options: {
+          debounceDelay: 250
+        }
+      }
     },
     sass: {
       dist: {
@@ -71,11 +78,12 @@ module.exports = function(grunt) {
         mangle: true
       },
       my_target: {
-        files: {
-          'js/main.min.js': ['js/main.js'],
-          'js/Application.min.js': ['js/Application.js'],
-          'js/Worker.min.js': ['js/Worker.js']
-        }
+        files: [{
+          expand: true,
+          cwd: 'js',
+          src: '**/*.js',
+          dest: 'minified/js'
+        }]
       }
     }
   }); // The end of grunt.initConfig

@@ -18,7 +18,7 @@ define(["jquery","underscore","backbone"],function($,_,Backbone){
             initialize: function(){
 
                 this.on("invalid", function(model, error){
-                    alert( error );
+                    console.log( error );
                 });
             }
         });

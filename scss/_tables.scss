@@ -17,7 +17,7 @@ $font-stack: Verdana, Geneva, sans-serif;
     background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $firstColor), color-stop(25%, $secondColor), color-stop(75%, $secondColor), color-stop(100%, $firstColor));
 }
 
-.Table {
+.table {
     width: 900px;
     display: block;
     font-family: $font-stack;
@@ -27,14 +27,14 @@ $font-stack: Verdana, Geneva, sans-serif;
     color: $tableText;
 }
 
-.Title {
+.title {
     display: table-caption;
     text-align: center;
     font-weight: normal;
     font-size: larger;
 }
 
-.Heading {
+.heading {
     display: table-row;
     font-weight: bold;
     border-top: solid;
@@ -47,7 +47,7 @@ span {
 }
 }
 
-.Row {
+.row {
     width: 900px;
     display: table-row;
     border-top: $border-style;

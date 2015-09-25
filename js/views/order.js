@@ -24,7 +24,7 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView"],funct
         },
 
         events: {
-            'click .Row': 'changeDisplay'
+            'click .row': 'changeDisplay'
         },
         reRender: function(e){
             this.render();

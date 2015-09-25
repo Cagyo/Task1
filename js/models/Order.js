@@ -1,4 +1,4 @@
-define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,Book, Books){
+define(["jquery","underscore","backbone","book","books","templates/helpers/priceWithDiscount"],function($,_,Backbone,Book, Books, priceWithDiscount){
 
             var Order = Backbone.Model.extend({
                 validate:true,
@@ -28,7 +28,7 @@ define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,B
                 getSum: function(){
                     var sum = 0;
                     this.attributes.items.forEach(function (item) {
-                        sum += item.get("price");
+                        sum += priceWithDiscount(item.get("price"),item.get("discount"));
                     });
                     return sum;
                 },
@@ -38,7 +38,7 @@ define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,B
                 },
 
                 addBook: function (bookInformation) {
-                    this.attributes.items.add(bookInformation);
+                    this.get("items").add(bookInformation);
                 },
 
                 validate: function(attributes){

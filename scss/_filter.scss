@@ -17,3 +17,19 @@ $color: #25a7df;
   color: #333333;
   text-decoration: none;
 }
+
+.inlineBlockDiv {
+  display: inline-block;
+}
+
+.filterSpacer {
+  display: inline-block;
+  width: 20px;
+}
+
+.filterBlock {
+  display:inline;
+  font-family: $font-stack;
+  font-weight: normal;
+  padding-left: 20px;
+}
