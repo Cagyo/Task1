@@ -1,4 +1,4 @@
-define(["jquery","underscore","worker","order","orders","orderView","filterView","books","orderListView"], function($,_,Worker,Order,Orders,OrderView, FilterView, Books, OrderListView){
+define(["jquery","underscore","orders","filterView","orderListView"], function($,_,Orders,FilterView, OrderListView){
 
     (function(){
         STATES = {CANCELLED: 0, INPROGRESS: 1, COMPLETED: 2};

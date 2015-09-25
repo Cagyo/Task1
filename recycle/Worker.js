@@ -1,4 +1,4 @@
-define(["jquery","underscore"],function($,_){
+define(["../lib/vendor/jquery/dist/jquery","underscore"],function($,_){
     var Worker = function (){};
     var cancelledOrderSection = 'cancelledOrderSection';
     var currentOrderSection = 'currentOrderSection';

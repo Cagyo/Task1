@@ -1,8 +1,7 @@
-define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worker',"hbs/handlebars","templates/helpers/getClassState"],function($,_,Backbone,templateFile, BookView, Worker, Handlebars, getClassState) {
+define(["jquery","underscore","backbone","hbs!templates/order","bookView"],function($,_,Backbone,templateFile, BookView) {
     var OrderView = Backbone.View.extend({
         template: templateFile,
         initialize: function(){
-            var x = getClassState(0);
             this.render();
             this.listenTo(this.model, 'change:displaySet', this.reRender);
         },
@@ -35,7 +34,6 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worke
             var id = this.model.attributes.id;
             this.orderId = _.clone(id);
             this.model.attributes.items.forEach(function(item){
-
                 var element = this.$el.find('#items-list-'+id);
                 var node = new BookView({model: item.toJSON()});
                     element.append(node.el);

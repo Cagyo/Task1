@@ -5,7 +5,6 @@ require.config({
         backbone: '../lib/vendor/backbone/backbone',
         handlebars: '../lib/vendor/require-handlebars-plugin/hbs/handlebars.runtime',
         hbs: '../lib/vendor/require-handlebars-plugin/hbs',
-        worker: 'Worker',
         application: 'Application',
         order: 'models/Order',
         orders: 'collections/Orders',
