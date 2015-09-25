@@ -1,10 +1,10 @@
-define('templates/helpers/getPaymentMethod', ['handlebars'], function ( Handlebars ) {
+define('templates/helpers/getPaymentMethod', ['hbs/handlebars'], function ( Handlebars ) {
     function getPaymentMethod (state) {
         if(state === 0) {
-            return "????????? ??? ?????????";
+            return "Наличными при получении";
         }
         else {
-            return "????????????";
+            return "Безналичными";
         }
     }
     Handlebars.registerHelper( 'getPaymentMethod', getPaymentMethod );

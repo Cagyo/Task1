@@ -1,5 +1,5 @@
-define('templates/helpers/setArrowImage', ['handlebars'], function ( Handlebars ) {
-    function setArrowImage (state) {
+define('templates/helpers/setArrowImage', ['hbs/handlebars'], function ( Handlebars ) {
+    function setArrowImage (display) {
         if(display === "block") {
             return "images/expand-opened-icon.png";
         }

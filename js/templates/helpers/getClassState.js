@@ -1,4 +1,4 @@
-define('templates/helpers/getClassState', ['handlebars'], function ( Handlebars ) {
+define('templates/helpers/getClassState', ['hbs/handlebars'], function ( Handlebars ) {
     function getClassState (state) {
         if(state === 0) {
             return "cancelledOrder";

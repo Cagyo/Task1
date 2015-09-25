@@ -3,7 +3,7 @@ require.config({
         jquery: '../lib/vendor/jquery/dist/jquery',
         underscore: '../lib/vendor/underscore/underscore',
         backbone: '../lib/vendor/backbone/backbone',
-        handlebars: '../lib/vendor/handlebars/handlebars',
+        handlebars: '../lib/vendor/require-handlebars-plugin/hbs/handlebars.runtime',
         hbs: '../lib/vendor/require-handlebars-plugin/hbs',
         worker: 'Worker',
         application: 'Application',

@@ -1,6 +1,6 @@
-define(["jquery","underscore","backbone","text!templates/filter.html","handlebars"],function($,_,Backbone,templateFile, Handlebars) {
+define(["jquery","underscore","backbone","hbs!templates/filter","handlebars"],function($,_,Backbone,templateFile, Handlebars) {
     var FilterView = Backbone.View.extend({
-        template: Handlebars.compile(templateFile),
+        template: templateFile,
         initialize: function(){
             this.render();
         },

@@ -1,4 +1,4 @@
-define('templates/helpers/getPictureState', ['handlebars'], function ( Handlebars ) {
+define('templates/helpers/getPictureState', ['hbs/handlebars'], function ( Handlebars ) {
     function getPictureState (state) {
         if(state === 0) {
             return "images/cancelled-icon.png";

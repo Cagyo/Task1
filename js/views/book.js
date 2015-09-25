@@ -1,5 +1,5 @@
-define(["jquery","underscore","backbone","text!templates/book.html","handlebars"],function($,_,Backbone,templateFile, Handlebars) {
-    Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+define(["jquery","underscore","backbone","hbs!templates/book","hbs/handlebars"],function($,_,Backbone,templateFile, Handlebars) {
+    /*Handlebars.registerHelper('ifCond', function(v1, v2, options) {
         if(v1 > v2) {
             return options.fn(this);
         }
@@ -7,9 +7,9 @@ define(["jquery","underscore","backbone","text!templates/book.html","handlebars"
     });
     Handlebars.registerHelper("priceWithDiscount", function(price, discount) {
         return price - price*discount/100;
-    });
+    });*/
     var BookView = Backbone.View.extend({
-        template: Handlebars.compile(templateFile),
+        template: templateFile,
         initialize: function(){
             this.render();
         },

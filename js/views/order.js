@@ -1,4 +1,4 @@
-define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worker',"handlebars","templates/helpers/getClassState"],function($,_,Backbone,templateFile, BookView, Worker, Handlebars, getClassState) {
+define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worker',"hbs/handlebars","templates/helpers/getClassState"],function($,_,Backbone,templateFile, BookView, Worker, Handlebars, getClassState) {
     /*Handlebars.registerHelper('getClassState', function(state) {
         if(state === 0) {
             return "cancelledOrder";
@@ -51,10 +51,11 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worke
     var OrderView = Backbone.View.extend({
         template: templateFile,//Handlebars.compile(templateFile),
         initialize: function(){
-
+            var x = getClassState(0);
             this.render();
             this.listenTo(this.model, 'change:displaySet', this.reRender);
         },
+
         hideAll: function (e) {
             console.log("collection");
             console.log(e);
