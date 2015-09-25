@@ -25,7 +25,7 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView",'worke
         },
 
         events: {
-            'click': 'changeDisplay' //todo: clicks handler only on short orders
+            'click .Row': 'changeDisplay' //todo: clicks handler only on short orders
         },
         reRender: function(e){
             this.render();

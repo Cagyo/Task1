@@ -18,7 +18,7 @@ define(["jquery","underscore","worker","order","orders","orderView","filterView"
             json = result;
         });
 
-        orders = new Orders();
+        orders = new Orders();//todo: migrate to collection
         for(var i =0; i<json.orders.length; i++)
         {
             var currentOrder=JSON.parse(JSON.stringify(json.orders[i]));
