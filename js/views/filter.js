@@ -3,7 +3,7 @@ define(["jquery","underscore","backbone","hbs!templates/filter","handlebars","or
         template: templateFile,
         filters: null,
         initialize: function(){
-            this.render();
+            //this.render();
         },
 
         filterEverything: function(){
@@ -24,9 +24,10 @@ define(["jquery","underscore","backbone","hbs!templates/filter","handlebars","or
             }
             $('#ordersSection').empty();
             var view = new OrderListView({collection: filteredOrders});
+            view.render();
 
 
-            _.each($("h2"),function (filter){
+            _.map($("h2"),function (filter, key){
                 $("#"+filter.id).children("a:eq(0)").attr("class","selectedFilterItemUnderlined")
             });
             $("#"+this.id).children("a:eq(0)").attr("class","selectedFilterItem");
@@ -35,8 +36,8 @@ define(["jquery","underscore","backbone","hbs!templates/filter","handlebars","or
 
         setHandlers: function(){
             this.filters = $("h2");
-            _.each(this.filters, function(filter){
-                filter.onclick = this.filterEverything;
+            _.map(this.filters, function(filter, key){
+                $(filter).on("click", this.filterEverything);
             },this);
         },
 

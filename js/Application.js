@@ -1,18 +1,32 @@
 define(["jquery","underscore","orders","filterView","orderListView"], function($,_,Orders,FilterView, OrderListView){
 
     (function(){
-        STATES = {CANCELLED: 0, INPROGRESS: 1, COMPLETED: 2};
-        PAYMENTMETHODS = {CASH: 0, CASHLESS: 1};
-        DELIVERYMETHOD = {self: 0, delivery: 1};
+        STATES = {0: "???????", 1: "????????? ?????????? ???????", 2: "????????"};
+        CLASS_STATES = {0: "cancelledOrder", 1: "currentOrder", 2: "completedOrder"};
+        PICTURESTATES = {0: "images/cancelled-icon.png", 1: "images/car-icon.png", 2: "images/delivered-icon.png"}
+        PAYMENTMETHODS = {0: "????????? ??? ?????????", 1: "????????????"};
+        DELIVERYMETHOD = {0: "???????? ????? ? ????", 1: "?????????"};
 
         var filterView = new FilterView();
+        filterView.render();
         $("#filter").append(filterView.el);
         filterView.setHandlers();
 
         orders = new Orders();
-        orders.fillFromJSON("http://localhost:63342/task1/json/orders.json");
+        var dfd = $.Deferred();
+        function generate() {
+            var view = new OrderListView({collection: orders});
+            view.render();
+        }
+        orders.fillFromJSON("https://api.myjson.com/bins/1qzpw");
+        generate();
+        //var res = dfd.done(orders.fillFromJSON("http://localhost:63342/task1/json/orders.json")).resolve(generate);
 
-        var view = new OrderListView({collection: orders});
+        //    .done(function () {
+        //    var view = new OrderListView({collection: orders});
+        //}.bind(this));
+
+
 
 
         //orderViews = [];

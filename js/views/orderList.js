@@ -3,7 +3,7 @@ define(["jquery","underscore","backbone","hbs!templates/orderList","handlebars",
         template: templateFile,
         orderViews: [],
         initialize: function(){
-            this.render();
+            //this.render();
         },
 
         render: function(){
@@ -13,11 +13,12 @@ define(["jquery","underscore","backbone","hbs!templates/orderList","handlebars",
 
             orderViews = [];
 
-            this.collection.forEach(function(order){
+            this.collection.map(function(order, key){
                 orderViews.push(new OrderView({model: order}));
             });
 
-            _.forEach(orderViews, function (orderView) {
+            _.map(orderViews, function (orderView, key) {
+                orderView.render();
                 $('#ordersSection').append(orderView.el);
             });
             return this;

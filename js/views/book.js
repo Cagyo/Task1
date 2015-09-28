@@ -2,7 +2,7 @@ define(["jquery","underscore","backbone","hbs!templates/book","hbs/handlebars"],
     var BookView = Backbone.View.extend({
         template: templateFile,
         initialize: function(){
-            this.render();
+            //this.render();
         },
 
         render: function(){

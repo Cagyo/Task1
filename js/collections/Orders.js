@@ -4,14 +4,13 @@ define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,
         initialize: function () {
             this.on( "change:display", this.hideAll, this);
         },
-        mode: 0,
-        counter: 0,
         hideAll: function (currentModel) {
-            console.log("collection");
+            //console.log("collection");
 
-                this.models.forEach(function (model) {
+                this.models.map(function (model, key) {
                     if(currentModel.get("id") !== model.get("id"))
-                        model.attributes.display = "none";
+                        model.set("display", "none",{ "silent": true });
+
                     if(model.get("displaySet") === true)
                         model.set("displaySet", false);
                     else
@@ -25,6 +24,11 @@ define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,
                 async: false
             });
 
+            function getOrders(){
+                return $.getJSON(jsonFileUrl);
+            }
+
+
             var json;
             $.getJSON(jsonFileUrl, data, function(result) {
                 json = result;
@@ -37,11 +41,36 @@ define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,
                 currentOrder.id = i+1;
                 currentOrder.displaySet = false;
                 this.add(currentOrder,{validate:true});
-                _.forEach(json.orders[i].items,function(item){
+                _.map(json.orders[i].items,function(item, key){
                     this.get(i+1).addBook(item);
                 },this);
                 this.get(i+1).orderFinished();
             }
+                //return data;
+
+
+            //function getOrders(){
+            //    return $.getJSON(jsonFileUrl);
+            //}
+            //
+            //getOrders().done(function (data) {
+            //    for(var i =0; i<data.length; i++)
+            //    {
+            //        var currentOrder=JSON.parse(JSON.stringify(data.orders[i]));
+            //        currentOrder.items = new Books;
+            //        currentOrder.id = i+1;
+            //        currentOrder.displaySet = false;
+            //        this.add(currentOrder,{validate:true});
+            //        _.forEach(json.orders[i].items,function(item){
+            //            this.get(i+1).addBook(item);
+            //        },this);
+            //        this.get(i+1).orderFinished();
+            //    }
+            //    return data;
+            //});
+
+
+
         },
         filterByState: function(state){
             var res = this.filter(

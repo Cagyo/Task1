@@ -2,7 +2,7 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView"],funct
     var OrderView = Backbone.View.extend({
         template: templateFile,
         initialize: function(){
-            this.render();
+            //this.render();
             this.listenTo(this.model, 'change:displaySet', this.reRender);
         },
 
@@ -31,11 +31,12 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView"],funct
         },
         render: function(){
             this.$el.html(this.template(this.model.toJSON()));
-            var id = this.model.attributes.id;
+            var id = this.model.get("id");
             this.orderId = _.clone(id);
-            this.model.attributes.items.forEach(function(item){
+            this.model.get("items").map(function(item, key){
                 var element = this.$el.find('#items-list-'+id);
                 var node = new BookView({model: item.toJSON()});
+                node.render();
                     element.append(node.el);
             },this);
             return this;

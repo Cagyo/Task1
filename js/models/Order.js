@@ -19,6 +19,7 @@ define(["jquery","underscore","backbone","book","books","templates/helpers/price
                     deliveryMethod: 0
                 },
                 setState: function(state){
+                    //todo: if state in STATES
                     this.state = state;
                 },
 
@@ -26,16 +27,15 @@ define(["jquery","underscore","backbone","book","books","templates/helpers/price
                     this.display = true;
                 },
 
-                getSum: function(){
-                    var sum = 0;
-                    this.attributes.items.forEach(function (item) {
-                        sum += priceWithDiscount(item.get("price"),item.get("discount"));
-                    });
-                    return sum;
+                getOrderSummmary: function(){
+                    var orderSummary = this.get("items").reduce(function(orderSummary, item){
+                        return orderSummary + priceWithDiscount(item.get("price"),item.get("discount"));
+                    }, 0);
+                    return orderSummary;
                 },
 
                 orderFinished: function () {
-                    this.set("summary",this.getSum());
+                    this.set("summary",this.getOrderSummmary());
                 },
 
                 addBook: function (bookInformation) {
@@ -48,9 +48,9 @@ define(["jquery","underscore","backbone","book","books","templates/helpers/price
                 },
 
                 initialize: function(){
-                    this.on('change:display', function (e) {
-                        console.log(e);
-                    });
+                    //this.on('change:display', function (e) {
+                    //    console.log(e);
+                    //});
                     this.on("invalid", function(model, error){
                         alert( error );
                     });
