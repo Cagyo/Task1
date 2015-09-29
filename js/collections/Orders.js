@@ -2,14 +2,14 @@ define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,
     var Orders = Backbone.Collection.extend({
         model: Order,
         initialize: function () {
-            this.on( "change:display", this.hideAll, this);
+            this.on( "change:"+ORDER_DISPLAY_FIELD, this.hideAll, this);
         },
         hideAll: function (currentModel) {
             //console.log("collection");
 
                 this.models.map(function (model, key) {
                     if(currentModel.get("id") !== model.get("id"))
-                        model.set("display", "none",{ "silent": true });
+                        model.set(ORDER_DISPLAY_FIELD, "none",{ "silent": true });
 
                     if(model.get("displaySet") === true)
                         model.set("displaySet", false);
@@ -18,22 +18,22 @@ define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,
                 });
 
         },
-        fillFromJSON: function (jsonFileUrl) {
-            var data;
-            $.ajaxSetup({
-                async: false
-            });
+        fillFromJSON: function (json) {
+            //var data;
+            //$.ajaxSetup({
+            //    async: false
+            //});
 
-            function getOrders(){
-                return $.getJSON(jsonFileUrl);
-            }
+            //function getOrders(){
+            //    return $.getJSON(jsonFileUrl);
+            //}
 
 
-            var json;
-            $.getJSON(jsonFileUrl, data, function(result) {
-                json = result;
-            });
-
+            //var json;
+            //$.getJSON(jsonFileUrl, data, function(result) {
+            //    json = result;
+            //});
+            //
             for(var i =0; i<json.orders.length; i++)
             {
                 var currentOrder=JSON.parse(JSON.stringify(json.orders[i]));
@@ -46,6 +46,9 @@ define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,
                 },this);
                 this.get(i+1).orderFinished();
             }
+
+
+
                 //return data;
 
 

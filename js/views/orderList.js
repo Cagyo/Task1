@@ -14,11 +14,11 @@ define(["jquery","underscore","backbone","hbs!templates/orderList","handlebars",
             orderViews = [];
 
             this.collection.map(function(order, key){
-                orderViews.push(new OrderView({model: order}));
+                orderViews.push(new OrderView({model: order}).render());
             });
 
             _.map(orderViews, function (orderView, key) {
-                orderView.render();
+                //orderView;
                 $('#ordersSection').append(orderView.el);
             });
             return this;

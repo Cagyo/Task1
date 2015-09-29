@@ -23,8 +23,8 @@ define(["jquery","underscore","backbone","hbs!templates/filter","handlebars","or
                 filteredOrders = orders;
             }
             $('#ordersSection').empty();
-            var view = new OrderListView({collection: filteredOrders});
-            view.render();
+            var view = new OrderListView({collection: filteredOrders}).render();
+
 
 
             _.map($("h2"),function (filter, key){

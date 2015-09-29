@@ -6,19 +6,19 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView"],funct
             this.listenTo(this.model, 'change:displaySet', this.reRender);
         },
 
-        hideAll: function (e) {
-            console.log("collection");
-            console.log(e);
-        },
+        //hideAll: function (e) {
+        //    console.log("collection");
+        //    console.log(e);
+        //},
         orderId: -1,
         changeDisplay: function (e) {
-            if(this.model.get("display") !== "block")
+            if(this.model.get(ORDER_DISPLAY_FIELD) !== "block")
             {
-                this.model.set("display","block");
+                this.model.set(ORDER_DISPLAY_FIELD,"block");
             }
             else
             {
-                this.model.set("display","none");
+                this.model.set(ORDER_DISPLAY_FIELD,"none");
             }
             this.render();
         },
@@ -35,8 +35,8 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView"],funct
             this.orderId = _.clone(id);
             this.model.get("items").map(function(item, key){
                 var element = this.$el.find('#items-list-'+id);
-                var node = new BookView({model: item.toJSON()});
-                node.render();
+                var node = new BookView({model: item.toJSON()}).render();
+
                     element.append(node.el);
             },this);
             return this;
