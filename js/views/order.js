@@ -1,9 +1,9 @@
-define(["jquery","underscore","backbone","hbs!templates/order","bookView"],function($,_,Backbone,templateFile, BookView) {
-    var OrderView = Backbone.View.extend({
+define(["jquery","underscore","hbs!templates/order","bookView","bookListView","marionette_node"],function($,_,templateFile, BookView,BookListView, Marionette) {
+    var OrderView = Marionette.ItemView.extend({
         template: templateFile,
         initialize: function(){
             //this.render();
-            this.listenTo(this.model, 'change:displaySet', this.reRender);
+            this.listenTo(this.model, 'change:displaySet', this.render);
         },
 
         //hideAll: function (e) {
@@ -26,19 +26,23 @@ define(["jquery","underscore","backbone","hbs!templates/order","bookView"],funct
         events: {
             'click .row': 'changeDisplay'
         },
-        reRender: function(e){
-            this.render();
-        },
+        //reRender: function(e){
+        //    this.render();
+        //},
         render: function(){
             this.$el.html(this.template(this.model.toJSON()));
             var id = this.model.get("id");
             this.orderId = _.clone(id);
-            this.model.get("items").map(function(item, key){
-                var element = this.$el.find('#items-list-'+id);
-                var node = new BookView({model: item.toJSON()}).render();
-
-                    element.append(node.el);
-            },this);
+            var element = this.$el.find('#items-list-'+id);
+            var view = new BookListView({collection: this.model.get("items")});
+            view.render();
+            element.append(view.el);
+            //this.model.get("items").map(function(item, key){
+            //    var element = this.$el.find('#items-list-'+id);
+            //    var node = new BookView({model: item.toJSON()});
+            //    node.render();
+            //    element.append(node);
+            //},this);
             return this;
         }
     });

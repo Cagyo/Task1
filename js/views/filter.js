@@ -1,10 +1,10 @@
-define(["jquery","underscore","backbone","hbs!templates/filter","handlebars","orderListView"],function($,_,Backbone,templateFile, Handlebars, OrderListView) {
-    var FilterView = Backbone.View.extend({
+define(["jquery","underscore","hbs!templates/filter","handlebars","orderListView","marionette_node"],function($,_,templateFile, Handlebars, OrderListView, Marionette) {
+    var FilterView = Marionette.ItemView.extend({
         template: templateFile,
         filters: null,
-        initialize: function(){
-            //this.render();
-        },
+        //initialize: function(){
+        //    //this.render();
+        //},
 
         filterEverything: function(){
             var state = -1;
@@ -41,10 +41,10 @@ define(["jquery","underscore","backbone","hbs!templates/filter","handlebars","or
             },this);
         },
 
-        render: function(){
-            this.el =  this.template();
-            return this;
-        }
+        //render: function(){
+        //    this.el =  this.template();
+        //    return this;
+        //}
     });
     return FilterView;
 });

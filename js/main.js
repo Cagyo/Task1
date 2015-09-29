@@ -15,7 +15,9 @@ require.config({
         books: 'collections/Books',
         bookView: 'views/book',
         filterView: 'views/filter',
-        orderListView: 'views/orderList'
+        orderListView: 'views/orderList',
+        bookListView: 'views/bookList',
+        mainPageView: 'views/mainPage'
     },
     hbs: { // optional
         helpers: true,            // default: true
@@ -24,6 +26,7 @@ require.config({
     }
 });
 
-require(["jquery","underscore","application"],function($,_,Application){
-
+require(["jquery","underscore","application"],function($,_,app){
+    //var OrderViewer = new Application();
+    app.start();
 });

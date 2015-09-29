@@ -1,5 +1,5 @@
-define(["jquery","underscore","backbone","hbs!templates/orderList","handlebars","orderView"],function($,_,Backbone,templateFile, Handlebars,OrderView) {
-    var OrderListView = Backbone.View.extend({
+define(["jquery","underscore","hbs!templates/orderList","handlebars","orderView","marionette_node"],function($,_,templateFile, Handlebars,OrderView,Marionette) {
+    var OrderListView = Marionette.CompositeView.extend({
         template: templateFile,
         orderViews: [],
         initialize: function(){
