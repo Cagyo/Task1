@@ -6,14 +6,6 @@ define(["jquery","underscore","hbs!templates/mainPage","hbs/handlebars","marione
             filter  : '#filter',
             orderList : '#orderList'
         }
-        //initialize: function(){
-        //    //this.render();
-        //},
-        //
-        //render: function(){
-        //    this.el =  this.template(this.model);
-        //    return this;
-        //}
     });
     return MainPageView;
 });

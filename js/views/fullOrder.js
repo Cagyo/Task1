@@ -1,10 +1,9 @@
-define(["jquery","underscore","hbs!templates/order","bookView","bookListView","marionette_node"],function($,_,templateFile, BookView,BookListView, Marionette) {
-    var OrderView = Marionette.CompositeView.extend({
+define(["jquery","underscore","hbs!templates/fullOrder","bookView","bookListView","marionette_node"],function($,_,templateFile, BookView,BookListView, Marionette) {
+    var FullOrderView = Marionette.ItemView.extend({
         template: templateFile,
         initialize: function(){
             //this.render();
             this.listenTo(this.model, 'change:displaySet', this.render);
-            this.collection = this.model.get("items");
         },
 
         //hideAll: function (e) {
@@ -24,12 +23,7 @@ define(["jquery","underscore","hbs!templates/order","bookView","bookListView","m
         },
 
         events: {
-            'click .row': 'changeDisplay'
-        },
-        childView: BookListView,
-
-        beforeRender: function () {
-
+            //'click .row': 'changeDisplay'
         },
         onRender: function(){
 
@@ -48,5 +42,5 @@ define(["jquery","underscore","hbs!templates/order","bookView","bookListView","m
 
         }
     });
-    return OrderView;
+    return FullOrderView;
 });

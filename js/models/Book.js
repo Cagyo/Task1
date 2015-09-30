@@ -16,10 +16,14 @@ define(["jquery","underscore","backbone"],function($,_,Backbone){
             },
 
             initialize: function(){
-
+                this.calculatePriceWithDiscount();
                 this.on("invalid", function(model, error){
                     console.log( error );
                 });
+            },
+
+            calculatePriceWithDiscount: function () {
+                this.set("priceWithDiscount",this.get("price") - this.get("price")*this.get("discount")/100);
             }
         });
         return Book;

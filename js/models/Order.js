@@ -1,4 +1,4 @@
-define(["jquery","underscore","backbone","book","books","templates/helpers/priceWithDiscount"],function($,_,Backbone,Book, Books, priceWithDiscount){
+define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,Book, Books){
 
             var Order = Backbone.Model.extend({
                 validate:true,
@@ -16,7 +16,10 @@ define(["jquery","underscore","backbone","book","books","templates/helpers/price
                     priceDelivery: 0,
                     receivedBonuses: 0,
                     items: new Books,
-                    deliveryMethod: 0
+                    deliveryMethod: 0,
+                    fields: ["state","state","state","paymentMethod","deliveryMethod","display"],
+                    strings: []
+
                 },
                 setState: function(state){
                     //todo: if state in STATES
@@ -29,9 +32,9 @@ define(["jquery","underscore","backbone","book","books","templates/helpers/price
 
                 getOrderSummmary: function(){
                     var orderSummary = this.get("items").reduce(function(orderSummary, item){
-                        return orderSummary + priceWithDiscount(item.get("price"),item.get("discount"));
+                        return orderSummary + item.get("price") - item.get("price")*item.get("discount")/100;
                     }, 0);
-                    return orderSummary;
+                    return orderSummary + this.get("priceDelivery");
                 },
 
                 orderFinished: function () {
@@ -40,6 +43,14 @@ define(["jquery","underscore","backbone","book","books","templates/helpers/price
 
                 addBook: function (bookInformation) {
                     this.get("items").add(bookInformation);
+                },
+
+                prepareStrings: function () {
+                    this.set("strings", []);
+                    this.values = _.map(CONSTANTS, function (constant, i) {
+                        this.get("strings").push(constant[this.get(this.get("fields")[i])]);
+                    }.bind(this));
+                    //debugger;
                 },
 
                 validate: function(attributes){
@@ -51,6 +62,7 @@ define(["jquery","underscore","backbone","book","books","templates/helpers/price
                     //this.on('change:display', function (e) {
                     //    console.log(e);
                     //});
+                    this.prepareStrings();
                     this.on("invalid", function(model, error){
                         alert( error );
                     });

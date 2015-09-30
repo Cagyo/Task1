@@ -1,49 +1,55 @@
 define(["jquery","underscore","hbs!templates/filter","handlebars","orderListView","marionette_node"],function($,_,templateFile, Handlebars, OrderListView, Marionette) {
     var FilterView = Marionette.ItemView.extend({
         template: templateFile,
-        filters: null,
+        //filters: null,
         //initialize: function(){
         //    //this.render();
         //},
 
-        filterEverything: function(){
+        events:{
+            'click h2': 'filterOrders'
+        },
+
+        filterOrders: function(e){
             var state = -1;
-            if (this.id === 'cancelledOrders') {
+            if (e.currentTarget.id === 'cancelledOrders') {
                 state = 0;
             }
-            else if (this.id === 'currentOrders') {
+            else if (e.currentTarget.id === 'currentOrders') {
                 state = 1;
             }
-            else if (this.id === 'completedOrders') {
+            else if (e.currentTarget.id === 'completedOrders') {
                 state = 2;
             }
 
-            var filteredOrders = orders.filterByState(state);
+            var filteredOrders = this.collection.filterByState(state);
             if(state === -1) {
-                filteredOrders = orders;
+                filteredOrders = this.collection;
             }
             $('#ordersSection').empty();
-            var view = new OrderListView({collection: filteredOrders}).render();
+            var view = new OrderListView({collection: filteredOrders});//.render();
 
+            this.globalView.getRegion('orderList').show(view);
 
+            this.markSelectedFilter(e.currentTarget);
+        },
 
-            _.map($("h2"),function (filter, key){
+        markSelectedFilter: function (element) {
+            _.map(this.$el.find("h2"),function (filter, key){
                 $("#"+filter.id).children("a:eq(0)").attr("class","selectedFilterItemUnderlined")
             });
-            $("#"+this.id).children("a:eq(0)").attr("class","selectedFilterItem");
-
+            $("#"+element.id).children("a:eq(0)").attr("class","selectedFilterItem");
         },
 
-        setHandlers: function(){
-            this.filters = $("h2");
-            _.map(this.filters, function(filter, key){
-                $(filter).on("click", this.filterEverything);
-            },this);
-        },
+        onRender: function () {
+            //this.setHandlers();
+        }
 
-        //render: function(){
-        //    this.el =  this.template();
-        //    return this;
+        //setHandlers: function(){
+        //    this.filters = this.$el.find("h2");
+        //    _.map(this.filters, function(filter, key){
+        //        $(filter).on("click", this.filterOrders);
+        //    },this);
         //}
     });
     return FilterView;
