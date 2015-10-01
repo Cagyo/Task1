@@ -15,13 +15,16 @@ define(["jquery","underscore","hbs!templates/orderList","handlebars","orderView"
                 //console.log(e);
 
                 var state = userChannel.request('some:request');
-                var res = this.initialCollection.filterByState(state);
+                if(state !== -1)
+                    var res = this.initialCollection.filterByState(state);
+                else
+                    res = this.initialCollection.clone();
                 this.collection.reset();
                 res.map(function (item) {
                     this.collection.add(item);
                 },this);
                 //this.collection = res;
-                this.render();
+                //this.render();
                 //debugger;
 
             }.bind(this));
