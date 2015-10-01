@@ -1,10 +1,30 @@
-define(["jquery","underscore","hbs!templates/orderList","handlebars","orderView","marionette_node"],function($,_,templateFile, Handlebars,OrderView,Marionette) {
+define(["jquery","underscore","hbs!templates/orderList","handlebars","orderView","marionette_node","radio"],function($,_,templateFile, Handlebars,OrderView,Marionette,Radio) {
+    var userChannel = Radio.channel('user');
     var OrderListView = Marionette.CollectionView.extend({
         template: templateFile,
         orderViews: [],
         childView: OrderView,
+        initialCollection: null,
+
         initialize: function() {
             //this.render();
+            this.initialCollection = this.collection.clone();
+
+            userChannel.on('some:event', function(e) {
+                //console.log(this);
+                //console.log(e);
+
+                var state = userChannel.request('some:request');
+                var res = this.initialCollection.filterByState(state);
+                this.collection.reset();
+                res.map(function (item) {
+                    this.collection.add(item);
+                },this);
+                //this.collection = res;
+                this.render();
+                //debugger;
+
+            }.bind(this));
         },
 
         beforeRender: function () {

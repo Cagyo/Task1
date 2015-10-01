@@ -7,6 +7,7 @@ require.config({
         hbs: '../lib/vendor/require-handlebars-plugin/hbs',
         marionette: '../lib/vendor/backbone.marionette/lib/backbone.marionette',
         marionette_node: '../node_modules/backbone.marionette/lib/backbone.marionette',
+        radio: '../node_modules/backbone.radio/build/backbone.radio',
         application: 'Application',
         order: 'models/Order',
         orders: 'collections/Orders',

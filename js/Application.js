@@ -28,7 +28,8 @@ define(["jquery","underscore","orders","filterView","orderListView","mainPageVie
             var filterView = new FilterView({collection: orders, globalView: this}).render();
             view.getRegion('filter').show(filterView);
 
-            var orderListView = new OrderListView({collection: orders}).render();
+           orderListView = new OrderListView({collection: orders}).render();
+            //this.view = orderListView;
             view.getRegion('orderList').show(orderListView);
             //view.removeRegion('orderList');
             //$('#ordersSection').append(view);

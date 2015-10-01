@@ -1,4 +1,5 @@
-define(["jquery","underscore","hbs!templates/filter","handlebars","orderListView","marionette_node"],function($,_,templateFile, Handlebars, OrderListView, Marionette) {
+define(["jquery","underscore","hbs!templates/filter","handlebars","orderListView","marionette_node","orderListView","radio"],function($,_,templateFile, Handlebars, OrderListView, Marionette, OrderListView, Radio) {
+    var userChannel = Radio.channel('user');
     var FilterView = Marionette.ItemView.extend({
         template: templateFile,
         //filters: null,
@@ -11,6 +12,8 @@ define(["jquery","underscore","hbs!templates/filter","handlebars","orderListView
         },
 
         filterOrders: function(e){
+
+
             var state = -1;
             if (e.currentTarget.id === 'cancelledOrders') {
                 state = 0;
@@ -26,10 +29,12 @@ define(["jquery","underscore","hbs!templates/filter","handlebars","orderListView
             if(state === -1) {
                 filteredOrders = this.collection;
             }
-            $('#ordersSection').empty();
-            var view = new OrderListView({collection: filteredOrders});//.render();
-
-            this.globalView.getRegion('orderList').show(view);
+            userChannel.reply('some:request', state);
+            userChannel.trigger('some:event');
+            //$('#ordersSection').empty();
+            //var view = new OrderListView({collection: filteredOrders}).render();
+            //orderListView
+            //this.globalView.getRegion('orderList').show(view);
 
             this.markSelectedFilter(e.currentTarget);
         },
@@ -43,6 +48,7 @@ define(["jquery","underscore","hbs!templates/filter","handlebars","orderListView
 
         onRender: function () {
             //this.setHandlers();
+
         }
 
         //setHandlers: function(){

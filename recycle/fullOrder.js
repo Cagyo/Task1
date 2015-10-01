@@ -33,6 +33,9 @@ define(["jquery","underscore","hbs!templates/fullOrder","bookView","bookListView
             var view = new BookListView({collection: this.model.get("items")});
             view.render();
             element.append(view.el);
+
+            var orderListView = new OrderListView({collection: orders}).render();
+            view.getRegion('orderList').show(orderListView);
             //this.model.get("items").map(function(item, key){
             //    var element = this.$el.find('#items-list-'+id);
             //    var node = new BookView({model: item.toJSON()});
