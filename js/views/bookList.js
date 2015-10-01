@@ -7,9 +7,6 @@ define(["jquery","underscore","hbs!templates/bookList","hbs/handlebars","marione
         //childView: BookView,
         initialize: function () {
 
-        },
-        onRender: function () {
-            var x = this;
         }
 
     });

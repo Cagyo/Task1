@@ -57,7 +57,7 @@ define(["jquery","underscore","hbs!templates/filterOrderList","handlebars","orde
         },
 
         beforeRender: function () {
-            $("#orderList").empty();
+            //$("#orderList").empty();
         }
     });
     return OrderListView;
