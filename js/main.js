@@ -14,11 +14,12 @@ require.config({
         orderView: 'views/order',
         book: 'models/Book',
         books: 'collections/Books',
-        bookView: 'views/book',
-        filterView: 'views/filter',
-        orderListView: 'views/orderList',
+        //bookView: 'views/book',
+        //filterView: 'views/filter',
+        //orderListView: 'views/orderList',
         bookListView: 'views/bookList',
-        mainPageView: 'views/mainPage'
+        filterOrderListView: 'views/filterOrderList'
+        //mainPageView: 'views/mainPage'
     },
     hbs: { // optional
         helpers: true,            // default: true
