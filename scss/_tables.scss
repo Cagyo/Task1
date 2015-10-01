@@ -112,11 +112,15 @@ right: -3px;
 .columnthree {
 @extend .mainColumn;
     width: 465px;
+    div {
+        vertical-align: middle;
+    }
 }
 
 .selectedOrderRow {
     display: table-row;
     font-weight: normal;
+
 }
 
 .dottedBorder {

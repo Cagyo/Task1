@@ -8,6 +8,21 @@ define(["jquery","underscore","hbs!templates/filterOrderList","handlebars","orde
         childViewContainer: '#ordersSection',
         initialCollection: null,
 
+        initialize: function() {
+            this.initialCollection = this.collection.clone();
+
+            userChannel.on('some:event', function(e) {
+                var state = userChannel.request('some:request');
+                if(state !== -1)
+                    var filteredCollection = this.initialCollection.filterByState(state);
+                else
+                    filteredCollection = this.initialCollection.clone();
+                this.collection.reset();
+                filteredCollection.map(function (item) {
+                    this.collection.add(item);
+                },this);
+            }.bind(this));
+        },
         events:{
             'click h2': 'filterOrders'
         },
@@ -39,21 +54,6 @@ define(["jquery","underscore","hbs!templates/filterOrderList","handlebars","orde
                 $("#"+filter.id).children("a:eq(0)").attr("class","selectedFilterItemUnderlined")
             });
             $("#"+element.id).children("a:eq(0)").attr("class","selectedFilterItem");
-        },
-        initialize: function() {
-            this.initialCollection = this.collection.clone();
-
-            userChannel.on('some:event', function(e) {
-                var state = userChannel.request('some:request');
-                if(state !== -1)
-                    var filteredCollection = this.initialCollection.filterByState(state);
-                else
-                    filteredCollection = this.initialCollection.clone();
-                this.collection.reset();
-                filteredCollection.map(function (item) {
-                    this.collection.add(item);
-                },this);
-            }.bind(this));
         },
 
         beforeRender: function () {

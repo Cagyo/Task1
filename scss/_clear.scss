@@ -1,3 +1,6 @@
+.clear {
+  clear:both;
+}
 .clear15 {
   clear: both;
   height: 15px;
@@ -6,4 +9,16 @@
 .clear20 {
   clear: both;
   height: 20px;
+}
+
+.clear2050 {
+  clear: both;
+  height: 20px;
+  padding-top: 50px;
+}
+
+.clear20Border {
+  clear: both;
+  height: 20px;
+  border-bottom: 1px dotted #cccccc;
 }
