@@ -5,8 +5,9 @@ define(["jquery", "underscore", "hbs!templates/bookList", "hbs/handlebars", "mar
         className: 'bookList',
         template: templateFile,
         //childView: BookView,
-        initialize: function () {
-
+        initialize: function (options) {
+            //debugger;
+            console.log(options);
         }
 
     });

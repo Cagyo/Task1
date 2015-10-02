@@ -2,7 +2,7 @@ define(["jquery","underscore","filterOrderListView","marionette","orders"],funct
     //var userChannel = Radio.channel('user');
     var FilterController = Marionette.Object.extend({
         initialCollection: null,
-        
+
         initialize: function () {
             this.orders = new Orders();
             //b = new Books();
@@ -19,10 +19,10 @@ define(["jquery","underscore","filterOrderListView","marionette","orders"],funct
         },
 
         applyFilter: function (state) {
+            filteredCollection = this.initialCollection.clone();
             if(state !== 3)
                 var filteredCollection = this.initialCollection.filterByState(state);
-            else
-                filteredCollection = this.initialCollection.clone();
+
             this.orders.reset();
             filteredCollection.map(function (item) {
                 this.orders.add(item);

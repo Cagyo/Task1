@@ -1,18 +1,17 @@
-{
-  "orders": [
+[
     {
       "orderNumber": "0570",
       "date": "06.06.2015",
       "state": 0,
       "name": "Vasiliy",
-      "address": "?. ????, ??. ?????????????, 65, ??. 11",
+      "address": "г. Киев, ул. Саксаганского, 65, кв. 11",
       "telephone": "+38 050 123-45-56",
       "paymentMethod": 0,
       "display": false,
       "summary": 182,
       "priceDelivery": 20,
       "receivedBonuses": 38,
-      "currency": "???",
+      "currency": "грн",
       "deliveryMethod": 0,
       "items": [
         {"bookId": 1,"count":1},
@@ -42,16 +41,16 @@
     {
       "orderNumber": "0572",
       "date": "20.09.2015",
-      "state": 2,
-      "name": "Aaa1",
-      "address": "?. ????, ??. ?????????????, 65, ??. 11",
+      "state": 1,
+      "name": "Aaa",
+      "address": "г. Киев, ул. Саксаганского, 65, кв. 11",
       "telephone": "+38 050 123-45-56",
       "paymentMethod": 0,
       "display": false,
       "summary": 182,
       "priceDelivery": 20,
       "receivedBonuses": 38,
-      "currency": "???",
+      "currency": "грн",
       "deliveryMethod": 0,
       "items": [
         {"bookId": 3,"count":1}
@@ -61,16 +60,16 @@
       "orderNumber": "0573",
       "date": "20.09.2015",
       "state": 2,
-      "name": "Aaa2",
-      "address": "?. ????, ??. ?????????????, 65, ??. 11",
+      "name": "Aaa1",
+      "address": "г. Киев, ул. Саксаганского, 65, кв. 11",
       "telephone": "+38 050 123-45-56",
       "paymentMethod": 0,
       "display": false,
       "summary": 182,
       "priceDelivery": 20,
       "receivedBonuses": 38,
-      "currency": "???",
-      "deliveryMethod": 1,
+      "currency": "грн",
+      "deliveryMethod": 0,
       "items": [
         {"bookId": 1,"count":1},
         {"bookId": 3,"count":1}
@@ -79,17 +78,17 @@
     {
       "orderNumber": "0574",
       "date": "20.09.2015",
-      "state": 1,
+      "state": 2,
       "name": "Aaa2",
-      "address": "?. ????, ??. ?????????????, 65, ??. 11",
+      "address": "г. Киев, ул. Саксаганского, 65, кв. 11",
       "telephone": "+38 050 123-45-56",
       "paymentMethod": 0,
       "display": false,
       "summary": 182,
       "priceDelivery": 20,
       "receivedBonuses": 38,
-      "currency": "???",
-      "deliveryMethod": 0,
+      "currency": "грн",
+      "deliveryMethod": 1,
       "items": [
         {"bookId": 1,"count":1},
         {"bookId": 2,"count":2},
@@ -97,4 +96,3 @@
       ]
     }
   ]
-}

@@ -16,9 +16,18 @@ define(["jquery","underscore","orders","filterOrderListView","books","filterCont
     application.on("before:start", function(){
         var filterController = new FilterController();
         //orders = new Orders();
-        ////b = new Books();
-        ////
-        ////    b.fetch({reset: true});
+        b = new Books();
+
+            b.fetch({reset: true});
+        o = new Orders();
+
+        o.fetch({reset: true});
+        b.forEach(function (val) {
+
+        val.get('items').map(function (v,k) {
+            //if()
+            b.set('itemsN', o.where("bookId", v.bookId));
+        })})
         //
         ////async
         //

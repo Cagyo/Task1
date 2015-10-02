@@ -6,10 +6,13 @@ define(["jquery","underscore","hbs!templates/filterOrderList","handlebars","orde
         orderViews: [],
         childView: OrderView,
         childViewContainer: '#ordersSection',
-        initialCollection: null,
-
+        //initialCollection: null,
+        childViewOptions: function (model) {
+            //debugger;
+            return { collection: model.get("items") };
+        },
         initialize: function() {
-            this.initialCollection = this.collection.clone();
+           // this.initialCollection = this.collection.clone();
 
             //userChannel.on('some:event', function(e) {
             //    var state = userChannel.request('some:request');
