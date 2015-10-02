@@ -1,4 +1,4 @@
-define(["jquery","underscore","backbone"],function($,_,Backbone){
+define(["jquery", "underscore", "backbone"], function ($, _, Backbone) {
         var Book = Backbone.Model.extend({
             defaults: {
                 title: "0",
@@ -11,19 +11,19 @@ define(["jquery","underscore","backbone"],function($,_,Backbone){
                 count: 0
             },
 
-            validate: function(attributes){
+            validate: function (attributes) {
 
             },
 
-            initialize: function(){
+            initialize: function () {
                 this.calculatePriceWithDiscount();
-                this.on("invalid", function(model, error){
-                    console.log( error );
+                this.on("invalid", function (model, error) {
+                    console.log(error);
                 });
             },
 
             calculatePriceWithDiscount: function () {
-                this.set("priceWithDiscount",this.get("price") - this.get("price")*this.get("discount")/100);
+                this.set("priceWithDiscount", this.get("price") - this.get("price") * this.get("discount") / 100);
             }
         });
         return Book;

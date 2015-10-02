@@ -1,7 +1,6 @@
 define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,Book, Books){
 
             var Order = Backbone.Model.extend({
-                validate:true,
                 defaults: {
                     orderNumber: "",
                     date: "01.01.2015",

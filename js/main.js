@@ -18,7 +18,8 @@ require.config({
         //filterView: 'views/filter',
         //orderListView: 'views/orderList',
         bookListView: 'views/bookList',
-        filterOrderListView: 'views/filterOrderList'
+        filterOrderListView: 'views/filterOrderList',
+        filterController: 'controllers/filterController'
         //mainPageView: 'views/mainPage'
     },
     hbs: { // optional

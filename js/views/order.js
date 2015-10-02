@@ -4,19 +4,17 @@ define(["jquery","underscore","hbs!templates/order","bookListView","marionette_n
         childView: BookListView,
         orderId: -1,
 
-        initialize: function(){
+        initialize: function() {
             this.listenTo(this.model, 'change:displaySet', this.render);
             this.collection = this.model.get("items");
             this.childViewContainer = '#items-list-'+this.model.id;
         },
 
         changeDisplay: function (e) {
-            if(this.model.get(ORDER_DISPLAY_FIELD) !== "block")
-            {
+            if(this.model.get(ORDER_DISPLAY_FIELD) !== "block") {
                 this.model.set(ORDER_DISPLAY_FIELD,"block");
             }
-            else
-            {
+            else {
                 this.model.set(ORDER_DISPLAY_FIELD,"none");
             }
         },

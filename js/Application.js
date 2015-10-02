@@ -1,6 +1,6 @@
-define(["jquery","underscore","orders","filterOrderListView"], function($,_,Orders,filterOrderListView, OrderListView, mainPageView) {
+define(["jquery","underscore","orders","filterOrderListView","books","filterController"], function($,_,Orders,filterOrderListView, Books, FilterController) {
 
-    var application = new Marionette.Application();
+    application = new Marionette.Application();
     //.extend({
     //initialize: function (options) {
     CONSTANTS = [
@@ -12,26 +12,33 @@ define(["jquery","underscore","orders","filterOrderListView"], function($,_,Orde
         ARROW_IMAGE = {0: "images/expand-opened-icon.png", 1: "images/expand-closed-icon.png"}
     ];
     ORDER_DISPLAY_FIELD = "display";
+    FILTER_CLASS_STATES = {0: "cancelledOrders", 1: "currentOrders", 2: "completedOrders", 3: "allOrders"}
     application.on("before:start", function(){
-        orders = new Orders();
+        var filterController = new FilterController();
+        //orders = new Orders();
+        ////b = new Books();
+        ////
+        ////    b.fetch({reset: true});
+        //
+        ////async
+        //
+        //var json = $.getJSON("json/orders.json").done(function (json) {
+        //    orders.fillFromJSON(json);
+        //    var filterView = new filterOrderListView({collection: orders}).render();
+        //
+        //    //var view = new mainPageView();
+        //    //view.render();
+        //    //view.getRegion('filter').show(filterView);
+        //    //orderListView = new OrderListView({collection: orders}).render();
+        //    //this.view = orderListView;
+        //    //view.getRegion('orderList').show(orderListView);
+        //    //view.removeRegion('orderList');
+        //    //$('#ordersSection').append(view);
+        //}).fail(function () {
+        //    alert("A problem with loading json!");
+        //});
 
-        //async
-
-        var json = $.getJSON("https://api.myjson.com/bins/1qzpw").done(function (json) {
-            orders.fillFromJSON(json);
-            var filterView = new filterOrderListView({collection: orders}).render();
-
-            //var view = new mainPageView();
-            //view.render();
-            //view.getRegion('filter').show(filterView);
-            //orderListView = new OrderListView({collection: orders}).render();
-            //this.view = orderListView;
-            //view.getRegion('orderList').show(orderListView);
-            //view.removeRegion('orderList');
-            //$('#ordersSection').append(view);
-        }).fail(function () {
-            alert("A problem with loading json!");
-        });
     });
+    //application.start();
     return application;
 });

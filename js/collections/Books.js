@@ -1,6 +1,7 @@
 define(["jquery","underscore","backbone","book"],function($,_,Backbone,Book) {
     var Books = Backbone.Collection.extend({
-        model: Book
+        model: Book,
+        url: 'json/books.json'
     });
     return Books;
 });
