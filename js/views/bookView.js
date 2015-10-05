@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "hbs!templates/bookList", "hbs/handlebars", "marionette_node"], function ($, _, templateFile, Handlebars, Marionette) {
+define(["jquery", "underscore", "hbs!templates/bookView", "hbs/handlebars", "marionette_node"], function ($, _, templateFile, Handlebars, Marionette) {
     var BookView = Marionette.ItemView.extend({
 
         tagName: 'div',

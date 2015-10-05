@@ -1,4 +1,4 @@
-define(["jquery","underscore","hbs!templates/order","bookListView","marionette_node"],function($,_,templateFile,BookListView, Marionette) {
+define(["jquery","underscore","hbs!templates/orderView","bookListView","marionette_node"],function($,_,templateFile,BookListView, Marionette) {
     var OrderView = Marionette.CompositeView.extend({
         template: templateFile,
         childView: BookListView,
