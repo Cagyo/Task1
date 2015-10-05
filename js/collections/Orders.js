@@ -1,7 +1,7 @@
 define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,Order, Books) {
     var Orders = Backbone.Collection.extend({
         model: Order,
-        url: 'https://api.myjson.com/bins/3xzbm',
+        url: 'json/v2/orders.json',
         initialize: function () {
             this.on( "change:"+ORDER_DISPLAY_FIELD, this.hideAll, this);
         },

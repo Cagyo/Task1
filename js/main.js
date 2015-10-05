@@ -11,15 +11,15 @@ require.config({
         application: 'Application',
         order: 'models/Order',
         orders: 'collections/Orders',
-        orderView: 'views/order',
+        orderView: 'views/orderView',
         book: 'models/Book',
         books: 'collections/Books',
         //bookView: 'views/book',
         //filterView: 'views/filter',
         //orderListView: 'views/orderList',
-        bookListView: 'views/bookList',
-        filterOrderListView: 'views/filterOrderList',
-        filterController: 'controllers/filterController'
+        bookListView: 'views/bookView',
+        filterOrderListView: 'views/mainView',
+        filterController: 'controllers/mainController'
         //mainPageView: 'views/mainPage'
     },
     hbs: { // optional

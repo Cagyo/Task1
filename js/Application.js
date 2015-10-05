@@ -1,4 +1,4 @@
-define(["jquery","underscore","orders","filterOrderListView","books","filterController"], function($,_,Orders,filterOrderListView, Books, FilterController) {
+define(["jquery","underscore","orders","filterOrderListView","books","filterController"], function($,_,Orders,filterOrderListView, Books, MainController) {
 
     application = new Marionette.Application();
     //.extend({
@@ -14,20 +14,30 @@ define(["jquery","underscore","orders","filterOrderListView","books","filterCont
     ORDER_DISPLAY_FIELD = "display";
     FILTER_CLASS_STATES = {0: "cancelledOrders", 1: "currentOrders", 2: "completedOrders", 3: "allOrders"}
     application.on("before:start", function(){
-        var filterController = new FilterController();
+        var mainController = new MainController();
         //orders = new Orders();
-        b = new Books();
 
-            b.fetch({reset: true});
-        o = new Orders();
 
-        o.fetch({reset: true});
-        b.forEach(function (val) {
+        window.b = new Books();
 
-        val.get('items').map(function (v,k) {
-            //if()
-            b.set('itemsN', o.where("bookId", v.bookId));
-        })})
+        window.b.fetch({reset: true});
+        window.o = new Orders();
+
+        window.o.fetch({reset: true});
+        setTimeout(function () {
+            window.arr = new Books();
+            window.o.map(function (val) {
+                var x = val.get('items');
+                x.map(function (v) {
+                    var temp = window.b.where({"bookId": v.bookId});
+                    window.arr.add(temp);
+
+                }.bind(this))
+                val.set('items', arr);
+            }.bind(this));
+
+        },1000);
+
         //
         ////async
         //
