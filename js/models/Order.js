@@ -31,7 +31,7 @@ define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,B
 
                 getOrderSummmary: function(){
                     var orderSummary = this.get("items").reduce(function(orderSummary, item){
-                        return orderSummary + item.get("price") - item.get("price")*item.get("discount")/100;
+                        return orderSummary + (item.get("price") - item.get("price")*item.get("discount")/100)*item.get("count");
                     }, 0);
                     return orderSummary + this.get("priceDelivery");
                 },

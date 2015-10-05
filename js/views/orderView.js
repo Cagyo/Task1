@@ -5,10 +5,9 @@ define(["jquery","underscore","hbs!templates/order","bookListView","marionette_n
         orderId: -1,
 
         initialize: function() {
-            //debugger;
             this.listenTo(this.model, 'change:displaySet', this.render);
             //this.collection = this.model.get("items");
-            this.childViewContainer = '#items-list-'+this.model.id;
+            this.childViewContainer = '#items-list-'+this.model.get("id");
         },
 
         changeDisplay: function (e) {

@@ -15,32 +15,7 @@ define(["jquery","underscore","orders","filterOrderListView","books","filterCont
     FILTER_CLASS_STATES = {0: "cancelledOrders", 1: "currentOrders", 2: "completedOrders", 3: "allOrders"}
     application.on("before:start", function(){
         var mainController = new MainController();
-        //orders = new Orders();
 
-
-        window.b = new Books();
-
-        window.b.fetch({reset: true});
-        window.o = new Orders();
-
-        window.o.fetch({reset: true});
-        setTimeout(function () {
-            window.arr = new Books();
-            window.o.map(function (val) {
-                var x = val.get('items');
-                x.map(function (v) {
-                    var temp = window.b.where({"bookId": v.bookId});
-                    window.arr.add(temp);
-
-                }.bind(this))
-                val.set('items', arr);
-            }.bind(this));
-
-        },1000);
-
-        //
-        ////async
-        //
         //var json = $.getJSON("json/orders.json").done(function (json) {
         //    orders.fillFromJSON(json);
         //    var filterView = new filterOrderListView({collection: orders}).render();

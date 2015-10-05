@@ -6,8 +6,7 @@
     "currency": "грн",
     "discount": 0,
     "isBook": true,
-    "pictureUrl": "images/itemone.png",
-    "count": 1
+    "pictureUrl": "images/itemone.png"
   },
     {
       "bookId": 1,
@@ -17,8 +16,7 @@
       "currency": "грн",
       "discount": 20,
       "isBook": true,
-      "pictureUrl": "images/itemtwo.png",
-      "count": 1
+      "pictureUrl": "images/itemtwo.png"
     },
     {
       "bookId": 2,
@@ -28,6 +26,5 @@
       "currency": "грн",
       "discount": 0,
       "isBook": false,
-      "pictureUrl": "images/itemone.png",
-      "count": 1
+      "pictureUrl": "images/itemone.png"
     }]
