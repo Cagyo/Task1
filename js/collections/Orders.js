@@ -1,15 +1,15 @@
-define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,Order, Books) {
+define(["jquery","underscore","backbone","order","books","otherConstants"],function($,_,Backbone,Order, Books, constants) {
     var Orders = Backbone.Collection.extend({
         model: Order,
         url: 'json/v2/orders.json',
         initialize: function () {
-            this.on( "change:"+ORDER_DISPLAY_FIELD, this.hideAll, this);
+            this.on( "change:"+constants.ORDER_DISPLAY_FIELD, this.hideAll, this);
         },
         hideAll: function (currentModel) {
 
                 this.models.map(function (model, key) {
                     if(currentModel.get("id") !== model.get("id"))
-                        model.set(ORDER_DISPLAY_FIELD, "none",{ "silent": true });
+                        model.set(constants.ORDER_DISPLAY_FIELD, "none",{ "silent": true });
 
                     if(model.get("displaySet") === true)
                         model.set("displaySet", false);
@@ -18,7 +18,14 @@ define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,
                 });
 
         },
-        fillFromJSON: function (json) {
+        filterByState: function(state){
+            var filteredCollection = this.filter(
+                function(order) {
+                    return order.get("state") === state;
+                });
+            return filteredCollection;
+        }
+        /*fillFromJSON: function (json) {
             for(var i =0; i<json.orders.length; i++)
             {
                 var currentOrder=JSON.parse(JSON.stringify(json.orders[i]));
@@ -31,14 +38,8 @@ define(["jquery","underscore","backbone","order","books"],function($,_,Backbone,
                 },this);
                 this.get(i+1).orderFinished();
             }
-        },
-        filterByState: function(state){
-            var res = this.filter(
-                function(order) {
-                    return order.get("state") === state;
-                });
-            return res;
-        }
+        },*/
+
     });
     return Orders;
 });

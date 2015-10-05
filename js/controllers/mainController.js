@@ -1,31 +1,35 @@
-define(["jquery","underscore","filterOrderListView","marionette","orders","books"],function($,_,filterOrderListView, Marionette, Orders, Books) {
+define(["jquery","underscore","filterOrderListView","marionette","orders","books"],function($,_,MainView, Marionette, Orders, Books) {
     //var userChannel = Radio.channel('user');
     var MainController = Marionette.Object.extend({
         initialCollection: null,
-        ordersCollection: null,
+        currentCollection: null,
 
         initialize: function () {
             var booksCollection = new Books();
-            this.ordersCollection = new Orders();
+            var orders = new Orders();
             $.when(
                 booksCollection.fetch({reset: true}),
-                this.ordersCollection.fetch({reset: true})
+                orders.fetch({reset: true})
             ).done(function () {
-                this.ordersCollection.map(function (order) {
-                    var orderBookCollection = new Books();
-                    var bookIds = order.get('items');
-                    bookIds.map(function (bookInfo) {
-                        var selectedBook = booksCollection.where({"bookId": bookInfo.bookId})[0].clone();
-                        selectedBook.set("count", bookInfo.count);
-                        orderBookCollection.add(selectedBook);
-                    }.bind(this))
-                    order.set('items', orderBookCollection);
-                    order.orderFinished();
-                }.bind(this));
+                this.mergeItemsWithOrders(orders,booksCollection);
+                this.filterView = new MainView({collection: orders}).render();
+                this.initialCollection = orders.clone();
+                this.currentCollection = orders;
+                this.listenTo(this.filterView, "filterApplied", this.applyFilter);
+            }.bind(this));
+        },
 
-                this.filterView = new filterOrderListView({collection: this.ordersCollection}).render();
-                this.initialCollection = this.ordersCollection.clone();
-                this.listenTo(this.filterView,"filterApplied",this.applyFilter);
+        mergeItemsWithOrders: function (orderCollection, booksCollection) {
+            orderCollection.map(function (order) {
+                var orderBookCollection = new Books();
+                var bookInfo = order.get('items');
+                bookInfo.map(function (bookInfo) {
+                    var selectedBook = booksCollection.where({"bookId": bookInfo.bookId})[0].clone();
+                    selectedBook.set("count", bookInfo.count);
+                    orderBookCollection.add(selectedBook);
+                }.bind(this));
+                order.set('items', orderBookCollection);
+                order.orderFinished();
             }.bind(this));
         },
 
@@ -34,9 +38,9 @@ define(["jquery","underscore","filterOrderListView","marionette","orders","books
             if(state !== 3)
                 var filteredCollection = this.initialCollection.filterByState(state);
 
-            this.ordersCollection.reset();
+            this.currentCollection.reset();
             filteredCollection.map(function (item) {
-                this.ordersCollection.add(item);
+                this.currentCollection.add(item);
             },this);
         }
     });

@@ -1,7 +1,7 @@
-define(["jquery","underscore","hbs!templates/orderView","bookListView","marionette_node"],function($,_,templateFile,BookListView, Marionette) {
+define(["jquery","underscore","hbs!templates/orderView","bookListView","marionette_node","otherConstants"],function($,_,templateFile,BookView, Marionette,CONSTANTS) {
     var OrderView = Marionette.CompositeView.extend({
         template: templateFile,
-        childView: BookListView,
+        childView: BookView,
         orderId: -1,
 
         initialize: function() {
@@ -11,11 +11,11 @@ define(["jquery","underscore","hbs!templates/orderView","bookListView","marionet
         },
 
         changeDisplay: function (e) {
-            if(this.model.get(ORDER_DISPLAY_FIELD) !== "block") {
-                this.model.set(ORDER_DISPLAY_FIELD,"block");
+            if(this.model.get(CONSTANTS.ORDER_DISPLAY_FIELD) !== "block") {
+                this.model.set(CONSTANTS.ORDER_DISPLAY_FIELD,"block");
             }
             else {
-                this.model.set(ORDER_DISPLAY_FIELD,"none");
+                this.model.set(CONSTANTS.ORDER_DISPLAY_FIELD,"none");
             }
         },
 

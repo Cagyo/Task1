@@ -1,4 +1,4 @@
-define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,Book, Books){
+define(["jquery","underscore","backbone","book","books","orderConstants"],function($,_,Backbone,Book, Books, CONSTANTS){
 
             var Order = Backbone.Model.extend({
                 defaults: {
@@ -31,13 +31,13 @@ define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,B
 
                 getOrderSummmary: function(){
                     var orderSummary = this.get("items").reduce(function(orderSummary, item){
-                        return orderSummary + (item.get("price") - item.get("price")*item.get("discount")/100)*item.get("count");
+                        return orderSummary + ( item.get("price") - item.get("price") * item.get("discount") / 100 ) * item.get("count");
                     }, 0);
                     return orderSummary + this.get("priceDelivery");
                 },
 
                 orderFinished: function () {
-                    this.set("summary",this.getOrderSummmary());
+                    this.set("summary", this.getOrderSummmary());
                 },
 
                 addBook: function (bookInformation) {
@@ -49,7 +49,6 @@ define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,B
                     this.values = _.map(CONSTANTS, function (constant, i) {
                         this.get("strings").push(constant[this.get(this.get("fields")[i])]);
                     }.bind(this));
-                    //debugger;
                 },
 
                 validate: function(attributes){
@@ -58,9 +57,6 @@ define(["jquery","underscore","backbone","book","books"],function($,_,Backbone,B
                 },
 
                 initialize: function(){
-                    //this.on('change:display', function (e) {
-                    //    console.log(e);
-                    //});
                     this.prepareStrings();
                     this.on("invalid", function(model, error){
                         alert( error );

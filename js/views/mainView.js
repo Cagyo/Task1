@@ -1,52 +1,44 @@
-define(["jquery","underscore","hbs!templates/mainView","handlebars","orderView","marionette_node","radio"],function($,_,templateFile, Handlebars,OrderView,Marionette,Radio) {
-    var userChannel = Radio.channel('user');
-    var OrderListView = Marionette.CompositeView.extend({
+define(["jquery","underscore","hbs!templates/mainView","orderView","marionette_node","otherConstants"],function($,_, templateFile, OrderView, Marionette,CONSTANTS) {
+    //var userChannel = Radio.channel('user');
+    var MainView = Marionette.CompositeView.extend({
         el: '#application',
         template: templateFile,
         orderViews: [],
         childView: OrderView,
         childViewContainer: '#ordersSection',
-        //initialCollection: null,
         childViewOptions: function (model) {
-            //debugger;
             return { collection: model.get("items") };
         },
         initialize: function() {
 
         },
         events:{
-            'click @ui.button': 'filterOrders'
+            'click @ui.filterButton': 'filterOrders'
         },
 
         ui: {
-            button: ".filter"
+            filterButton: ".filter"
         },
 
         filterOrders: function(e){
 
             var state;
-            _.map(FILTER_CLASS_STATES, function (stateClass, key) {
+            _.map(CONSTANTS.FILTER_CLASS_STATES, function (stateClass, key) {
                 if (stateClass === e.currentTarget.id) {
                     state = Number(key);
                 }
             });
 
-            this.trigger("filterApplied",state);
+            this.trigger("filterApplied", state);
             this.markSelectedFilter(e.currentTarget);
         },
 
         markSelectedFilter: function(element) {
-
-            //_.map(this.$el.find("h2"),function (filter, key){
-            _.map(this.ui.button,function (filter){
-                $("#"+filter.id).children("a:eq(0)").attr("class","selectedFilterItemUnderlined");
+            _.map(this.ui.filterButton, function (filter) {
+                $(filter).children("a:eq(0)").attr("class","selectedFilterItemUnderlined");
             });
-            $("#"+element.id).children("a:eq(0)").attr("class","selectedFilterItem");
-        },
-
-        beforeRender: function() {
-            //$("#orderList").empty();
+            $(element).children("a:eq(0)").attr("class","selectedFilterItem");
         }
     });
-    return OrderListView;
+    return MainView;
 });
