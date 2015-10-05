@@ -1,5 +1,5 @@
 define(["jquery", "underscore", "backbone"], function ($, _, Backbone) {
-        var Book = Backbone.Model.extend({
+        return Backbone.Model.extend({
             defaults: {
                 title: "0",
                 author: '',
@@ -26,6 +26,5 @@ define(["jquery", "underscore", "backbone"], function ($, _, Backbone) {
                 this.set("priceWithDiscount", this.get("price") - this.get("price") * this.get("discount") / 100);
             }
         });
-        return Book;
     }
 );

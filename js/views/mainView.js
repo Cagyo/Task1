@@ -1,17 +1,20 @@
 define(["jquery","underscore","hbs!templates/mainView","orderView","marionette_node","otherConstants"],function($,_, templateFile, OrderView, Marionette,CONSTANTS) {
     //var userChannel = Radio.channel('user');
-    var MainView = Marionette.CompositeView.extend({
+    return Marionette.CompositeView.extend({
         el: '#application',
         template: templateFile,
         orderViews: [],
         childView: OrderView,
         childViewContainer: '#ordersSection',
+
         childViewOptions: function (model) {
             return { collection: model.get("items") };
         },
+
         initialize: function() {
 
         },
+
         events:{
             'click @ui.filterButton': 'filterOrders'
         },
@@ -35,10 +38,9 @@ define(["jquery","underscore","hbs!templates/mainView","orderView","marionette_n
 
         markSelectedFilter: function(element) {
             _.map(this.ui.filterButton, function (filter) {
-                $(filter).children("a:eq(0)").attr("class","selectedFilterItemUnderlined");
+                $(filter).children("a:eq(0)").attr("class","selected-filter-item-underlined");
             });
-            $(element).children("a:eq(0)").attr("class","selectedFilterItem");
+            $(element).children("a:eq(0)").attr("class","selected-filter-item");
         }
     });
-    return MainView;
 });

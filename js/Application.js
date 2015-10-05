@@ -1,4 +1,4 @@
-define(["jquery","underscore","orders","filterOrderListView","books","filterController"], function($,_,Orders,filterOrderListView, Books, MainController) {
+define(["jquery","underscore","orders","mainView","books","mainController"], function($,_,Orders,filterOrderListView, Books, MainController) {
 
     application = new Marionette.Application();
 

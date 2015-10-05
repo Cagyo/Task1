@@ -1,29 +1,30 @@
 define(["jquery","underscore","backbone","order","books","otherConstants"],function($,_,Backbone,Order, Books, constants) {
-    var Orders = Backbone.Collection.extend({
+    return Backbone.Collection.extend({
         model: Order,
         url: 'json/v2/orders.json',
+
         initialize: function () {
             this.on( "change:"+constants.ORDER_DISPLAY_FIELD, this.hideAll, this);
         },
+
         hideAll: function (currentModel) {
 
-                this.models.map(function (model, key) {
-                    if(currentModel.get("id") !== model.get("id"))
-                        model.set(constants.ORDER_DISPLAY_FIELD, "none",{ "silent": true });
+                this.models.map(function (order) {
+                    if(currentModel.get("id") !== order.get("id"))
+                        order.set(constants.ORDER_DISPLAY_FIELD, "none",{ "silent": true });
 
-                    if(model.get("displaySet") === true)
-                        model.set("displaySet", false);
+                    if(order.get("displaySet") === true)
+                        order.set("displaySet", false);
                     else
-                        model.set("displaySet", true);
+                        order.set("displaySet", true);
                 });
 
         },
+
         filterByState: function(state){
-            var filteredCollection = this.filter(
-                function(order) {
-                    return order.get("state") === state;
-                });
-            return filteredCollection;
+            return this.filter(function(order) {
+                return order.get("state") === state;
+            });
         }
         /*fillFromJSON: function (json) {
             for(var i =0; i<json.orders.length; i++)
@@ -41,5 +42,4 @@ define(["jquery","underscore","backbone","order","books","otherConstants"],funct
         },*/
 
     });
-    return Orders;
 });

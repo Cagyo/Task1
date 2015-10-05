@@ -1,7 +1,7 @@
 $font-stack: Verdana, Geneva, sans-serif;
 $color: #25a7df;
 
-.selectedFilterItemUnderlined {
+.selected-filter-item-underlined {
   font-family: $font-stack;
   font-size: 20px;
   font-weight: normal;
@@ -10,7 +10,7 @@ $color: #25a7df;
   border-bottom: 1px dashed $color;
 }
 
-.selectedFilterItem {
+.selected-filter-item {
   font-family: $font-stack;
   font-size: 20px;
   font-weight: normal;
@@ -18,16 +18,16 @@ $color: #25a7df;
   text-decoration: none;
 }
 
-.inlineBlockDiv {
+.inline-block-div {
   display: inline-block;
 }
 
-.filterSpacer {
+.filter-spacer {
   display: inline-block;
   width: 20px;
 }
 
-.filterBlock {
+.filter-block {
   display:inline;
   font-family: $font-stack;
   font-weight: normal;

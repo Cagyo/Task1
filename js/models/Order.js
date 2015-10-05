@@ -1,6 +1,6 @@
-define(["jquery","underscore","backbone","book","books","orderConstants"],function($,_,Backbone,Book, Books, CONSTANTS){
+define(["jquery","underscore","backbone","book","books","orderConstants"],function($,_, Backbone, Book, Books, CONSTANTS){
 
-            var Order = Backbone.Model.extend({
+        return Backbone.Model.extend({
                 defaults: {
                     orderNumber: "",
                     date: "01.01.2015",
@@ -63,6 +63,5 @@ define(["jquery","underscore","backbone","book","books","orderConstants"],functi
                     });
                 }
             });
-        return Order;
     }
 );

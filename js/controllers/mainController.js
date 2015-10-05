@@ -1,6 +1,6 @@
-define(["jquery","underscore","filterOrderListView","marionette","orders","books"],function($,_,MainView, Marionette, Orders, Books) {
+define(["jquery","underscore","mainView","marionette","orders","books"],function($,_,MainView, Marionette, Orders, Books) {
     //var userChannel = Radio.channel('user');
-    var MainController = Marionette.Object.extend({
+    return Marionette.Object.extend({
         initialCollection: null,
         currentCollection: null,
 
@@ -44,5 +44,4 @@ define(["jquery","underscore","filterOrderListView","marionette","orders","books
             },this);
         }
     });
-    return MainController;
 });

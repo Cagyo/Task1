@@ -15,8 +15,8 @@ require.config({
         book: 'models/Book',
         books: 'collections/Books',
         bookListView: 'views/bookView',
-        filterOrderListView: 'views/mainView',
-        filterController: 'controllers/mainController',
+        mainView: 'views/mainView',
+        mainController: 'controllers/mainController',
         orderConstants: 'constants/OrderConstants',
         otherConstants: 'constants/OtherConstants'
     },
@@ -27,7 +27,6 @@ require.config({
     }
 });
 
-require(["jquery","underscore","application"],function($,_,app){
-    //var OrderViewer = new Application();
-    app.start();
+require(["jquery","underscore","application"],function($,_,application){
+    application.start();
 });
