@@ -40,7 +40,8 @@ define(["jquery","underscore","hbs!templates/mainView","orderView","marionette_n
             _.map(this.ui.filterButton, function (filter) {
                 $(filter).children("a:eq(0)").attr("class","selected-filter-item-underlined");
             });
-            $(element).children("a:eq(0)").attr("class","selected-filter-item");
+            var x =  $("#"+element.id).children("a:eq(0)");
+            x.attr("class","selected-filter-item");
         }
     });
 });

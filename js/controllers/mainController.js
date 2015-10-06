@@ -1,7 +1,7 @@
 define(["jquery","underscore","mainView","marionette","orders","books"],function($,_,MainView, Marionette, Orders, Books) {
     //var userChannel = Radio.channel('user');
     return Marionette.Object.extend({
-        initialCollection: null,
+        //initialCollection: null,
         currentCollection: null,
 
         initialize: function () {
@@ -12,10 +12,10 @@ define(["jquery","underscore","mainView","marionette","orders","books"],function
                 orders.fetch({reset: true})
             ).done(function () {
                 this.mergeItemsWithOrders(orders,booksCollection);
-                this.filterView = new MainView({collection: orders}).render();
-                this.initialCollection = orders.clone();
+                this.mainView = new MainView({collection: orders}).render();
+                //this.initialCollection = orders.clone();
                 this.currentCollection = orders;
-                this.listenTo(this.filterView, "filterApplied", this.applyFilter);
+                this.listenTo(this.mainView, "filterApplied", this.applyFilter);
             }.bind(this));
         },
 
@@ -34,14 +34,25 @@ define(["jquery","underscore","mainView","marionette","orders","books"],function
         },
 
         applyFilter: function (state) {
-            filteredCollection = this.initialCollection.clone();
-            if(state !== 3)
-                var filteredCollection = this.initialCollection.filterByState(state);
 
-            this.currentCollection.reset();
-            filteredCollection.map(function (item) {
-                this.currentCollection.add(item);
-            },this);
+            var filter = function(child, index, collection) {
+                return child.get('state') === state;
+            };
+
+            if(state !== 3)
+                this.mainView.filter = filter;
+            else
+                this.mainView.filter = null;
+            this.mainView.render();
+
+            //filteredCollection = this.initialCollection.clone();
+            //if(state !== 3)
+            //    var filteredCollection = this.initialCollection.filterByState(state);
+            //
+            //this.currentCollection.reset();
+            //filteredCollection.map(function (item) {
+            //    this.currentCollection.add(item);
+            //},this);
         }
     });
 });
