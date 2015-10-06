@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-    return {
+    module.exports = {
         STATES: ["Отменен", "Отправлен курьерской службой", "Выполнен"],
         CLASS_STATES: ["cancelledOrder", "currentOrder", "completedOrder"],
         PICTURE_STATES:["images/cancelled-icon.png", "images/car-icon.png", "images/delivered-icon.png"],

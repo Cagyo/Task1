@@ -4,7 +4,7 @@ define(function(require, exports, module){
     var CONSTANTS = require("otherConstants");
     Object.freeze(CONSTANTS);
 
-    return Backbone.Collection.extend({
+    module.exports = Backbone.Collection.extend({
         model: Order,
         url: 'json/v2/orders.json',
 

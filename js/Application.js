@@ -1,4 +1,4 @@
-define(function(require, exports, module){//["jquery","underscore","orders","mainView","books","mainController"], function($,_,Orders,filterOrderListView, Books, MainController) {
+define(function(require, exports, module){
     var Marionette = require("marionette");
     var MainController = require("mainController");
 
@@ -25,5 +25,5 @@ define(function(require, exports, module){//["jquery","underscore","orders","mai
 
     });
     //application.start();
-    return application;
+    module.exports = application;
 });

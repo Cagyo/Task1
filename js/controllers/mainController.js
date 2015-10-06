@@ -6,7 +6,7 @@ define(function(require, exports, module){
     var MainView = require("mainView");
     var $ = require("jquery");
 
-    return Marionette.Object.extend({
+    module.exports = Marionette.Object.extend({
         //initialCollection: null,
         currentCollection: null,
 

@@ -8,7 +8,7 @@ define(function(require, exports, module){
     var _ = require("underscore");
     var $ = require("jquery");
 
-    return Marionette.CompositeView.extend({
+    module.exports = Marionette.CompositeView.extend({
         el: '#application',
         template: template,
         orderViews: [],

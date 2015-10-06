@@ -1,7 +1,7 @@
 define(function(require, exports, module){
         var Backbone = require("backbone");
 
-        return Backbone.Model.extend({
+        module.exports = Backbone.Model.extend({
             defaults: {
                 title: "0",
                 author: '',

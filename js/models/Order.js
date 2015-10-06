@@ -5,7 +5,7 @@ define(function(require, exports, module){
         var CONSTANTS = require("orderConstants");
         Object.freeze(CONSTANTS);
 
-        return Backbone.Model.extend({
+        module.exports = Backbone.Model.extend({
                 defaults: {
                     orderNumber: "",
                     date: "01.01.2015",
