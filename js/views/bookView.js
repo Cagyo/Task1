@@ -1,13 +1,14 @@
-define(["jquery", "underscore", "hbs!templates/bookView", "hbs/handlebars", "marionette_node"], function ($, _, templateFile, Handlebars, Marionette) {
-    return Marionette.ItemView.extend({
+define(function(require, exports, module){
+    var Marionette = require("marionette_node");
+    var template = require("hbs!templates/bookView");
 
+    return Marionette.ItemView.extend({
         tagName: 'div',
         className: 'bookList',
-        template: templateFile,
+        template: template,
 
         initialize: function (options) {
             //console.log(options);
         }
-
     });
 });

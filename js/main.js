@@ -14,7 +14,7 @@ require.config({
         orderView: 'views/orderView',
         book: 'models/Book',
         books: 'collections/Books',
-        bookListView: 'views/bookView',
+        bookView: 'views/bookView',
         mainView: 'views/mainView',
         mainController: 'controllers/mainController',
         orderConstants: 'constants/OrderConstants',
@@ -27,6 +27,6 @@ require.config({
     }
 });
 
-require(["jquery","underscore","application"],function($,_,application){
+require(["application"],function(application){
     application.start();
 });

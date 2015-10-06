@@ -1,5 +1,11 @@
-define(["jquery","underscore","mainView","marionette","orders","books"],function($,_,MainView, Marionette, Orders, Books) {
+define(function(require, exports, module){
     //var userChannel = Radio.channel('user');
+    var Marionette = require("marionette");
+    var Books = require("books");
+    var Orders = require("orders");
+    var MainView = require("mainView");
+    var $ = require("jquery");
+
     return Marionette.Object.extend({
         //initialCollection: null,
         currentCollection: null,

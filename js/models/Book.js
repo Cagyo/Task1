@@ -1,4 +1,6 @@
-define(["jquery", "underscore", "backbone"], function ($, _, Backbone) {
+define(function(require, exports, module){
+        var Backbone = require("backbone");
+
         return Backbone.Model.extend({
             defaults: {
                 title: "0",

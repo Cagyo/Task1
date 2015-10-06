@@ -1,22 +1,27 @@
-define(["jquery","underscore","backbone","order","books","otherConstants"],function($,_,Backbone,Order, Books, constants) {
+define(function(require, exports, module){
+    var Backbone = require("backbone");
+    var Order = require("order");
+    var CONSTANTS = require("otherConstants");
+    Object.freeze(CONSTANTS);
+
     return Backbone.Collection.extend({
         model: Order,
         url: 'json/v2/orders.json',
 
         initialize: function () {
-            this.on( "change:"+constants.ORDER_DISPLAY_FIELD, this.hideAll, this);
+            this.on( "change:"+CONSTANTS.ORDER_DISPLAY_FIELD, this.hideAll, this);
         },
 
         hideAll: function (currentModel) {
 
-                this.models.map(function (order) {
-                    if(currentModel.get("id") !== order.get("id"))
-                        order.set(constants.ORDER_DISPLAY_FIELD, "none",{ "silent": true });
+            this.models.map(function (order) {
+                if(currentModel.get("id") !== order.get("id"))
+                    order.set(CONSTANTS.ORDER_DISPLAY_FIELD, "none", {"silent": true});
 
-                    if(order.get("displaySet") === true)
-                        order.set("displaySet", false);
-                    else
-                        order.set("displaySet", true);
+                if(order.get("displaySet") === true)
+                    order.set("displaySet", false);
+                else
+                    order.set("displaySet", true);
                 });
 
         },
@@ -26,6 +31,7 @@ define(["jquery","underscore","backbone","order","books","otherConstants"],funct
                 return order.get("state") === state;
             });
         }
+
         /*fillFromJSON: function (json) {
             for(var i =0; i<json.orders.length; i++)
             {
@@ -39,7 +45,7 @@ define(["jquery","underscore","backbone","order","books","otherConstants"],funct
                 },this);
                 this.get(i+1).orderFinished();
             }
-        },*/
+        }*/
 
     });
 });

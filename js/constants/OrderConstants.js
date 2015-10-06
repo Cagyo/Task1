@@ -1,5 +1,4 @@
-define([], function() {
-
+define(function(require, exports, module) {
     return {
         STATES: ["Отменен", "Отправлен курьерской службой", "Выполнен"],
         CLASS_STATES: ["cancelledOrder", "currentOrder", "completedOrder"],
@@ -8,5 +7,4 @@ define([], function() {
         DELIVERY_METHOD: ["Курьером лично в руки", "Самовывоз"],
         ARROW_IMAGE: ["images/expand-opened-icon.png", "images/expand-closed-icon.png"]
     };
-
 });

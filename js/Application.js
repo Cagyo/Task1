@@ -1,17 +1,8 @@
-define(["jquery","underscore","orders","mainView","books","mainController"], function($,_,Orders,filterOrderListView, Books, MainController) {
+define(function(require, exports, module){//["jquery","underscore","orders","mainView","books","mainController"], function($,_,Orders,filterOrderListView, Books, MainController) {
+    var Marionette = require("marionette");
+    var MainController = require("mainController");
 
     application = new Marionette.Application();
-
-    /*CONSTANTS = [
-        STATES = {0: "Отменен", 1: "Отправлен курьерской службой", 2: "Выполнен"},
-        CLASS_STATES = {0: "cancelledOrder", 1: "currentOrder", 2: "completedOrder"},
-        PICTURE_STATES = {0: "images/cancelled-icon.png", 1: "images/car-icon.png", 2: "images/delivered-icon.png"},
-        PAYMENT_METHODS = {0: "Наличными при получении", 1: "Безналичными"},
-        DELIVERY_METHOD = {0: "Курьером лично в руки", 1: "Самовывоз"},
-        ARROW_IMAGE = {0: "images/expand-opened-icon.png", 1: "images/expand-closed-icon.png"}
-    ];
-    ORDER_DISPLAY_FIELD = "display";
-    FILTER_CLASS_STATES = {0: "cancelledOrders", 1: "currentOrders", 2: "completedOrders", 3: "allOrders"}*/
 
     application.on("before:start", function(){
         var mainController = new MainController();

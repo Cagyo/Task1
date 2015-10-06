@@ -1,4 +1,9 @@
-define(["jquery","underscore","backbone","book","books","orderConstants"],function($,_, Backbone, Book, Books, CONSTANTS){
+define(function(require, exports, module){
+        var Backbone = require("backbone");
+        var _ = require("underscore");
+        var Books = require("books");
+        var CONSTANTS = require("orderConstants");
+        Object.freeze(CONSTANTS);
 
         return Backbone.Model.extend({
                 defaults: {
@@ -16,7 +21,7 @@ define(["jquery","underscore","backbone","book","books","orderConstants"],functi
                     receivedBonuses: 0,
                     items: new Books,
                     deliveryMethod: 0,
-                    fields: {
+                    stringFields: {
                         STATES: "state",
                         CLASS_STATES:"state",
                         PICTURE_STATES: "state",
@@ -27,7 +32,6 @@ define(["jquery","underscore","backbone","book","books","orderConstants"],functi
                     strings: []
                 },
                 setState: function(state){
-                    //todo: if state in STATES
                     this.state = state;
                 },
 
@@ -37,7 +41,7 @@ define(["jquery","underscore","backbone","book","books","orderConstants"],functi
 
                 getOrderSummmary: function(){
                     var orderSummary = this.get("items").reduce(function(orderSummary, item){
-                        return orderSummary + ( item.get("price") - item.get("price") * item.get("discount") / 100 ) * item.get("count");
+                        return orderSummary + (item.get("price") - item.get("price") * item.get("discount") / 100) * item.get("count");
                     }, 0);
                     return orderSummary + this.get("priceDelivery");
                 },
@@ -53,10 +57,9 @@ define(["jquery","underscore","backbone","book","books","orderConstants"],functi
                 prepareStrings: function () {
                     this.set("strings", []);
                     this.values = _.map(CONSTANTS, function (constant, i, key) {
-                        //if(constant)
-                        var tmp = this.get("fields")[i]
-                        var temp = this.get(tmp);
-                        this.get("strings").push(constant[temp]);
+                        var fieldName = this.get("stringFields")[i];
+                        var fieldValue = this.get(fieldName);
+                        this.get("strings").push(constant[fieldValue]);
                     }.bind(this));
                 },
 
@@ -68,7 +71,7 @@ define(["jquery","underscore","backbone","book","books","orderConstants"],functi
                 initialize: function(){
                     this.prepareStrings();
                     this.on("invalid", function(model, error){
-                        alert( error );
+                        alert(error);
                     });
                 }
             });

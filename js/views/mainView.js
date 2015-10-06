@@ -1,8 +1,16 @@
-define(["jquery","underscore","hbs!templates/mainView","orderView","marionette_node","otherConstants"],function($,_, templateFile, OrderView, Marionette,CONSTANTS) {
+define(function(require, exports, module){
     //var userChannel = Radio.channel('user');
+    var Marionette = require("marionette");
+    var template = require("hbs!templates/mainView");
+    var OrderView = require("orderView");
+    var CONSTANTS = require("otherConstants");
+    Object.freeze(CONSTANTS);
+    var _ = require("underscore");
+    var $ = require("jquery");
+
     return Marionette.CompositeView.extend({
         el: '#application',
-        template: templateFile,
+        template: template,
         orderViews: [],
         childView: OrderView,
         childViewContainer: '#ordersSection',
@@ -26,7 +34,7 @@ define(["jquery","underscore","hbs!templates/mainView","orderView","marionette_n
         filterOrders: function(e){
 
             var state;
-            _.map(CONSTANTS.FILTER_CLASS_STATES, function (stateClass, key) {
+            _.map(CONSTANTS.FILTER_CLASS_STATES, function(stateClass, key) {
                 if (stateClass === e.currentTarget.id) {
                     state = Number(key);
                 }
@@ -37,11 +45,12 @@ define(["jquery","underscore","hbs!templates/mainView","orderView","marionette_n
         },
 
         markSelectedFilter: function(element) {
-            _.map(this.ui.filterButton, function (filter) {
-                $(filter).children("a:eq(0)").attr("class","selected-filter-item-underlined");
+            _.map(this.ui.filterButton, function(filter) {
+                $(filter).children("a:eq(0)").attr("class", "selected-filter-item-underlined");
+                if(filter.id === element.id) {
+                    $(filter).children("a:eq(0)").attr("class", "selected-filter-item");
+                }
             });
-            var x =  $("#"+element.id).children("a:eq(0)");
-            x.attr("class","selected-filter-item");
         }
     });
 });

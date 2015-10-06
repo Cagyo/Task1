@@ -1,12 +1,17 @@
-define(["jquery","underscore","hbs!templates/orderView","bookListView","marionette_node","otherConstants"],function($,_, templateFile, BookView, Marionette, CONSTANTS) {
+define(function(require, exports, module){//["jquery","underscore","hbs!templates/orderView","bookListView","marionette_node","otherConstants"],function($,_, templateFile, BookView, Marionette, CONSTANTS) {
+    var Marionette = require("marionette");
+    var template = require("hbs!templates/orderView");
+    var BookView = require("bookView");
+    var CONSTANTS = require("otherConstants");
+    Object.freeze(CONSTANTS);
+
     return Marionette.CompositeView.extend({
-        template: templateFile,
+        template: template,
         childView: BookView,
         orderId: -1,
 
         initialize: function() {
             this.listenTo(this.model, 'change:displaySet', this.render);
-            //this.collection = this.model.get("items");
             this.childViewContainer = '#items-list-'+this.model.get("id");
         },
 
