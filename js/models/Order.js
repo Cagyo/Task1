@@ -16,9 +16,15 @@ define(["jquery","underscore","backbone","book","books","orderConstants"],functi
                     receivedBonuses: 0,
                     items: new Books,
                     deliveryMethod: 0,
-                    fields: ["state","state","state","paymentMethod","deliveryMethod","display"],
+                    fields: {
+                        STATES: "state",
+                        CLASS_STATES:"state",
+                        PICTURE_STATES: "state",
+                        PAYMENT_METHODS:"paymentMethod",
+                        DELIVERY_METHOD: "deliveryMethod",
+                        ARROW_IMAGE: "display"
+                    },
                     strings: []
-
                 },
                 setState: function(state){
                     //todo: if state in STATES
@@ -46,8 +52,11 @@ define(["jquery","underscore","backbone","book","books","orderConstants"],functi
 
                 prepareStrings: function () {
                     this.set("strings", []);
-                    this.values = _.map(CONSTANTS, function (constant, i) {
-                        this.get("strings").push(constant[this.get(this.get("fields")[i])]);
+                    this.values = _.map(CONSTANTS, function (constant, i, key) {
+                        //if(constant)
+                        var tmp = this.get("fields")[i]
+                        var temp = this.get(tmp);
+                        this.get("strings").push(constant[temp]);
                     }.bind(this));
                 },
 

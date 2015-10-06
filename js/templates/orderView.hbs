@@ -1,13 +1,13 @@
 <section id="order{{id}}" class="{{strings.[1]}}Section">
     <div class="row background {{strings.[1]}}">
 
-        <div class="columnonebackground">
+        <div class="column-one-background">
             <p>{{date}}</p>
         </div>
-        <div class="columntwo">
+        <div class="column-two">
             <p>№ {{orderNumber}}</p>
         </div>
-        <div class="columnthree">
+        <div class="column-three">
 
             <div><img src="{{strings.[2]}}"/> {{strings.[0]}}
 
@@ -17,16 +17,16 @@
     </div>
 </section>
 
-<section id="fullorder{{id}}" class="fullOrderInfo" style="display: {{display}};">
+<section id="fullorder{{id}}" class="full-order-info" style="display: {{display}};">
     <div class="clear15"></div>
-    <div class="orderInformation">
-        <div class="orderInfoField">
+    <div class="order-information">
+        <div class="order-info-field">
             Имя получателя: <br/>
             Электронная почта: <br/>
             Доставка: <br/>
             Оплата: <br/>
         </div>
-        <div class="orderInfoFieldValues left">{{name}}<br/>
+        <div class="order-info-field-values left">{{name}}<br/>
             {{telephone}}<br/>
             {{strings.[3]}}. {{address}}<br/>
             {{strings.[4]}}
@@ -35,14 +35,14 @@
     </div>
     <div class="clear20"></div>
 
-    <div class="selectedOrderRow">
-        <div class="itemsCol">
+    <div class="selected-order-row">
+        <div class="items-col">
             <p>Товары в заказе</p>
         </div>
-        <div class="numberCol">
+        <div class="number-col">
             <p>Колличество</p>
         </div>
-        <div class="priceCol">
+        <div class="price-col">
             <div>Цена</div>
         </div>
     </div>
@@ -53,8 +53,8 @@
     </div>
 
     <div class="clear"></div>
-    <div class="orderInformation">
-        <div style="">Доставка: <span
+    <div class="order-information">
+        <div>Доставка: <span
                 style="color: #f15e00;"><b>{{priceDelivery}}
             {{currency}}.</b></span>
         </div>
@@ -62,19 +62,19 @@
 
     <div class="clear20-border"></div>
 
-    <div class="selectedOrderRow">
-        <div class="itemsColContent bonuses">
+    <div class="selected-order-row">
+        <div class="items-col-content bonuses">
                 <span><b>+{{receivedBonuses}}
                     бонусов</b> за этот заказ</span>
         </div>
-        <div class="numberColContent">
+        <div class="number-col-content">
 
         </div>
-        <div class="priceColContent orderSummary">
+        <div class="price-col-content order-summary">
             Сумма заказа: <span style="color: #f15e00;"><b>{{summary}} {{currency}}.</b></span>
         </div>
     </div>
 
-    <div class="clear2050"></div>
+    <div class="clear20-50"></div>
 
 </section>

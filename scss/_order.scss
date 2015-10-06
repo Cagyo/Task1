@@ -1,8 +1,8 @@
-.fullOrderInfo {
+.full-order-info {
   display: none;
 }
 
-.orderInformation {
+.order-information {
   display: inline;
   width: 1000px;
   div{
@@ -12,20 +12,20 @@
   }
 }
 
-.itemsCol {
+.items-col {
   display: table-cell;
   width: 560px;
   padding-left: 5px;
   font-weight: bold;
 }
 
-.numberCol {
+.number-col {
   display: table-cell;
   width: 110px;
   font-weight: bold;
 }
 
-.priceCol {
+.price-col {
   display: table-cell;
   width: 240px;
   font-weight: bold;
@@ -36,7 +36,7 @@
   }
 }
 
-.itemsColContent {
+.items-col-content {
   display: table-cell;
   width: 560px;
   padding-bottom: 5px;
@@ -44,7 +44,7 @@
 
 }
 
-.itemInfo{
+.item-info{
   padding-top: 20px;
   vertical-align: top;
 }
@@ -53,13 +53,13 @@
   padding-top: 17px;
 }
 
-.orderSummary {
+.order-summary {
   text-align:right;
   padding-top: 17px;
   padding-right: 10px;
 }
 
-.numberColContent {
+.number-col-content {
   display: table-cell;
   width: 110px;
   text-align: center;
@@ -68,13 +68,13 @@
   padding-top: 20px;
 }
 
-.priceColContent {
+.price-col-content {
   display: table-cell;
   width: 240px;
   vertical-align: top;
 }
 
-.orderInfoField {
+.order-info-field {
   display: inline-block;
 
   color: #999999;
@@ -83,12 +83,12 @@
   vertical-align: top;
 }
 
-.orderInfoFieldValues {
+.order-info-field-values {
   display: inline-block;
   position: relative;
 }
 
-.bookInfo {
+.book-info {
   display: inline-block;
   vertical-align: top;
   padding-left: 5px;
@@ -99,7 +99,7 @@
   }
 }
 
-.bookPrice {
+.book-price {
   padding-top:20px;
   text-align: right;
   padding-right: 10px;
@@ -109,7 +109,7 @@
   text-align: left !important;
 }
 
-.isItemBook {
+.is-item-book {
   position: absolute;
   margin-left: -8px;
   margin-top: -15px;

@@ -1,12 +1,12 @@
-<div class="selectedOrderRow dottedBorder">
-    <div class="itemsColContent">
+<div class="selected-order-row dotted-border">
+    <div class="items-col-content">
 
-        <div class="itemInfo">
+        <div class="item-info">
             <img src="{{pictureUrl}}"/>
 
-            <div class="isItemBook">{{#if isBook}}<img
+            <div class="is-item-book">{{#if isBook}}<img
                     src="images/book-icon.png"/>{{/if}}</div>
-            <div class="bookInfo">
+            <div class="book-info">
                 <span style="color: #446699;">{{title}}</span>
                 <span>{{author}}</span><br/>
                 {{#ifCond discount 0}}
@@ -15,11 +15,11 @@
                 <span style="color: #f15e00;"><b>{{priceWithDiscount}} {{currency}}</b></span></div>
         </div>
     </div>
-    <div class="numberColContent">
+    <div class="number-col-content">
         <span>{{count}}</span>
     </div>
-    <div class="priceColContent">
-        <div class="bookPrice">
+    <div class="price-col-content">
+        <div class="book-price">
 
             <b><span
                     style="color: #f15e00;">{{priceWithDiscount}} {{currency}}.</span></b>
