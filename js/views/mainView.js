@@ -31,23 +31,23 @@ define(function(require, exports, module){
             filterButton: ".filter"
         },
 
-        filterOrders: function(e){
+        filterOrders: function(event){
 
             var state;
             _.map(CONSTANTS.FILTER_CLASS_STATES, function(stateClass, key) {
-                if (stateClass === e.currentTarget.id) {
+                if (stateClass === event.currentTarget.id) {
                     state = Number(key);
                 }
             });
 
             this.trigger("filterApplied", state);
-            this.markSelectedFilter(e.currentTarget);
+            this.markSelectedFilter(event.currentTarget);
         },
 
-        markSelectedFilter: function(element) {
+        markSelectedFilter: function(selectedFilter) {
             _.map(this.ui.filterButton, function(filter) {
                 $(filter).children("a:eq(0)").attr("class", "selected-filter-item-underlined");
-                if(filter.id === element.id) {
+                if(filter.id === selectedFilter.id) {
                     $(filter).children("a:eq(0)").attr("class", "selected-filter-item");
                 }
             });
