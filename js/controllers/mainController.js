@@ -3,7 +3,11 @@ define(function(require, exports, module){
     var Marionette = require("marionette");
     var Books = require("books");
     var Orders = require("orders");
+    var FilterButtons = require("filterButtons");
+    var FilterButton = require("filterButton");
+    var MainLayoutView = require("mainLayoutView");
     var MainView = require("mainView");
+    var FilterView = require("filterView");
     var $ = require("jquery");
     var _ = require("underscore");
 
@@ -14,15 +18,24 @@ define(function(require, exports, module){
         initialize: function () {
             var booksCollection = new Books();
             var orders = new Orders();
+            var filterButtons = new FilterButtons();
             $.when(
                 booksCollection.fetch({reset: true}),
-                orders.fetch({reset: true})
+                orders.fetch({reset: true}),
+                filterButtons.fetch({reset: true})
             ).done(function () {
-                this.mergeItemsWithOrders(orders,booksCollection);
-                this.mainView = new MainView({collection: orders}).render();
-                //this.initialCollection = orders.clone();
-                this.currentCollection = orders;
-                this.listenTo(this.mainView, "filterApplied", this.applyFilter);
+
+                    this.mergeItemsWithOrders(orders,booksCollection);
+
+                    this.mainView = new MainLayoutView({collection: orders}).render();
+                    this.orderListView = new MainView({collection: orders}).render();
+                    this.filterView = new FilterView({collection: filterButtons}).render();
+
+                    this.mainView.showChildView("orderList",this.orderListView);
+                    this.mainView.showChildView("filter", this.filterView);
+
+                    this.currentCollection = orders;
+                    this.listenTo(this.filterView, "filterApplied", this.applyFilter);
                     //Marionette.Behaviors.behaviorsLookup = function () {
                     //
                     //    var behaviorStorage = {};
@@ -40,7 +53,7 @@ define(function(require, exports, module){
                 var orderBookCollection = new Books();
                 var bookInfo = order.get('items');
                 bookInfo.map(function (bookInfo) {
-                    var selectedBook = booksCollection.where({"bookId": bookInfo.bookId})[0].clone();
+                    var selectedBook = booksCollection.findWhere({"bookId": bookInfo.bookId}).clone();
                     selectedBook.set("count", bookInfo.count);
                     orderBookCollection.add(selectedBook);
                 }.bind(this));
@@ -50,16 +63,17 @@ define(function(require, exports, module){
         },
 
         applyFilter: function (state) {
+            this.filterView.render();
 
             var filter = function(child, index, collection) {
                 return child.get('state') === state;
             };
 
             if(state !== 3)
-                this.mainView.filter = filter;
+                this.orderListView.filter = filter;
             else
-                this.mainView.filter = null;
-            this.mainView.render();
+                this.orderListView.filter = null;
+            this.orderListView.render();
 
             //filteredCollection = this.initialCollection.clone();
             //if(state !== 3)

@@ -1,0 +1,27 @@
+[
+  {
+    "active": true,
+    "stateClass": "allOrders",
+    "buttonClass": "selected-filter-item",
+    "text": "Все заказы",
+    "stateNumber": 3
+  },
+  {
+    "stateClass": "currentOrders",
+    "buttonClass": "selected-filter-item-underlined",
+    "text": "Текущие",
+    "stateNumber": 1
+  },
+  {
+    "stateClass": "completedOrders",
+    "buttonClass": "selected-filter-item-underlined",
+    "text": "Завершенные",
+    "stateNumber": 2
+  },
+  {
+    "stateClass": "cancelledOrders",
+    "buttonClass": "selected-filter-item-underlined",
+    "text": "Отмененные",
+    "stateNumber": 0
+  }
+]
