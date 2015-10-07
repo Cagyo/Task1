@@ -9,10 +9,10 @@ define(function(require, exports, module){
         url: 'json/v2/orders.json',
 
         initialize: function () {
-            this.on( "change:"+CONSTANTS.ORDER_DISPLAY_FIELD, this.hideAll, this);
+            this.on( "change:"+CONSTANTS.ORDER_DISPLAY_FIELD, this.showCurrent, this);
         },
 
-        hideAll: function (currentModel) {
+        showCurrent: function (currentModel) {
 
             this.models.map(function (order) {
                 if(currentModel.get("id") !== order.get("id"))

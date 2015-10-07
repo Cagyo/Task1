@@ -5,6 +5,7 @@ define(function(require, exports, module){
     var Orders = require("orders");
     var MainView = require("mainView");
     var $ = require("jquery");
+    var _ = require("underscore");
 
     module.exports = Marionette.Object.extend({
         //initialCollection: null,
@@ -22,6 +23,15 @@ define(function(require, exports, module){
                 //this.initialCollection = orders.clone();
                 this.currentCollection = orders;
                 this.listenTo(this.mainView, "filterApplied", this.applyFilter);
+                    //Marionette.Behaviors.behaviorsLookup = function () {
+                    //
+                    //    var behaviorStorage = {};
+                    //    _.extend(behaviorStorage, {filterApplied: function (state) {
+                    //        console.log(state);
+                    //    }});
+                    //
+                    //    return behaviorStorage;
+                    //};
             }.bind(this));
         },
 
