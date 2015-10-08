@@ -1,6 +1,14 @@
 define(function(require, exports, module){
     var Marionette = require("marionette");
     var MainController = require("mainController");
+    //var mocha = require("mocha");
+    //var chai = require("chai");
+    //var sinon = require("sinon");
+
+    //mocha.setup("bdd");
+    //window.onload = function () {
+    //    mocha.run();
+    //};
 
     application = new Marionette.Application();
 

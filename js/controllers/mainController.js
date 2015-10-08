@@ -63,8 +63,6 @@ define(function(require, exports, module){
         },
 
         applyFilter: function (state) {
-            this.filterView.render();
-
             var filter = function(child, index, collection) {
                 return child.get('state') === state;
             };

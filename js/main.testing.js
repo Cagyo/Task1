@@ -35,6 +35,24 @@ require.config({
     }
 });
 
-require(["application"],function(application){
-    application.start();
+require(["chai","sinon"],function(chai,sinon){
+    //application.start();
+    //var Example = require('modules/example');
+    mocha.setup("bdd");
+
+    function multiply (a,b) {
+        return a*b;
+    }
+
+    describe("multiply", function() {
+
+        it("возводит в n-ю степень", function() {
+            chai.assert.equal(multiply(2, 3), 6);
+        });
+
+    });
+    window.onload = function () {
+        mocha.run();
+    };
+    debugger;
 });
