@@ -1,8 +1,8 @@
 define(function(require, exports, module){
-        var Backbone = require("backbone");
-        var _ = require("underscore");
-        var Books = require("books");
-        var CONSTANTS = require("orderConstants");
+        var Backbone = require("backbone"),
+        _ = require("underscore"),
+        Books = require("books"),
+        CONSTANTS = require("orderConstants");
         Object.freeze(CONSTANTS);
 
         module.exports = Backbone.Model.extend({

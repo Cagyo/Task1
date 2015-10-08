@@ -1,7 +1,9 @@
 define(function(require, exports, module){
-    var Backbone = require("backbone");
-    var Order = require("order");
-    var CONSTANTS = require("otherConstants");
+    var Backbone = require("backbone"),
+    Order = require("order"),
+    CONSTANTS = require("otherConstants"),
+    Books = require("books");
+
     Object.freeze(CONSTANTS);
 
     module.exports = Backbone.Collection.extend({
@@ -30,9 +32,9 @@ define(function(require, exports, module){
             return this.filter(function(order) {
                 return order.get("state") === state;
             });
-        }
-
-        /*fillFromJSON: function (json) {
+        },
+        //todo: temporary for test
+        fillFromJSON: function (json) {
             for(var i =0; i<json.orders.length; i++)
             {
                 var currentOrder=JSON.parse(JSON.stringify(json.orders[i]));
@@ -45,7 +47,7 @@ define(function(require, exports, module){
                 },this);
                 this.get(i+1).orderFinished();
             }
-        }*/
+        }
 
     });
 });

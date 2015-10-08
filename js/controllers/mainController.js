@@ -16,6 +16,10 @@ define(function(require, exports, module){
         currentCollection: null,
 
         initialize: function () {
+
+        },
+
+        start: function () {
             var booksCollection = new Books();
             var orders = new Orders();
             var filterButtons = new FilterButtons();
@@ -45,7 +49,7 @@ define(function(require, exports, module){
                     //
                     //    return behaviorStorage;
                     //};
-            }.bind(this));
+                }.bind(this));
         },
 
         mergeItemsWithOrders: function (orderCollection, booksCollection) {

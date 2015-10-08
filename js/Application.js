@@ -14,7 +14,7 @@ define(function(require, exports, module){
 
     application.on("before:start", function(){
         var mainController = new MainController();
-
+        mainController.start();
         //var json = $.getJSON("json/orders.json").done(function (json) {
         //    orders.fillFromJSON(json);
         //    var filterView = new filterOrderListView({collection: orders}).render();

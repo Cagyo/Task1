@@ -26,7 +26,8 @@ require.config({
         filterButtonView: 'views/filterButtonView',
         mainController: 'controllers/mainController',
         orderConstants: 'constants/OrderConstants',
-        otherConstants: 'constants/OtherConstants'
+        otherConstants: 'constants/OtherConstants',
+        mainSpec: "../test/specs/mainSpec"
     },
     hbs: { // optional
         helpers: true,            // default: true
@@ -35,24 +36,43 @@ require.config({
     }
 });
 
-require(["chai","sinon"],function(chai,sinon){
+require(["chai","sinon","orders","jquery","books","mainSpec"],function(chai,sinon,Orders,$,Books,MainSpec){
     //application.start();
     //var Example = require('modules/example');
-    mocha.setup("bdd");
+    //var testCase = require('mocha').describe;
+    //var pre = require('mocha').before;
+    //var assertions = require('mocha').it;
 
-    function multiply (a,b) {
+    //var temp = MainSpec;
+
+    multiply = function multiply (a,b) {
         return a*b;
-    }
-
-    describe("multiply", function() {
-
-        it("возводит в n-ю степень", function() {
-            chai.assert.equal(multiply(2, 3), 6);
-        });
-
-    });
-    window.onload = function () {
-        mocha.run();
     };
-    debugger;
+
+    mocha.run();
+
+
+
+
+
+    //var json = $.getJSON("json/orders.json").done(function (json) {
+    //    orders.fillFromJSON(json);
+    //    var filterView = new filterOrderListView({collection: orders}).render();
+    //
+    //    //var view = new mainPageView();
+    //    //view.render();
+    //    //view.getRegion('filter').show(filterView);
+    //    //orderListView = new OrderListView({collection: orders}).render();
+    //    //this.view = orderListView;
+    //    //view.getRegion('orderList').show(orderListView);
+    //    //view.removeRegion('orderList');
+    //    //$('#ordersSection').append(view);
+    //}).fail(function () {
+    //    alert("A problem with loading json!");
+    //});
+    //    setTimeout(function () {
+
+        //},500);
+
+    //debugger;
 });
