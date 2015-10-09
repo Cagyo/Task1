@@ -1,15 +1,14 @@
 define(function(require, exports, module){
     //var userChannel = Radio.channel('user');
-    var Marionette = require("marionette");
-    var Books = require("books");
-    var Orders = require("orders");
-    var FilterButtons = require("filterButtons");
-    var FilterButton = require("filterButton");
-    var MainLayoutView = require("mainLayoutView");
-    var MainView = require("mainView");
-    var FilterView = require("filterView");
-    var $ = require("jquery");
-    var _ = require("underscore");
+    var Marionette = require("marionette"),
+        Books = require("books"),
+        Orders = require("orders"),
+        FilterButtons = require("filterButtons"),
+        MainLayoutView = require("mainLayoutView"),
+        MainView = require("mainView"),
+        FilterView = require("filterView"),
+        $ = require("jquery"),
+        _ = require("underscore");
 
     module.exports = Marionette.Object.extend({
         //initialCollection: null,

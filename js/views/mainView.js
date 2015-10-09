@@ -1,12 +1,13 @@
 define(function(require, exports, module){
     //var userChannel = Radio.channel('user');
-    var Marionette = require("marionette");
-    var template = require("hbs!templates/mainView");
-    var OrderView = require("orderView");
-    var CONSTANTS = require("otherConstants");
+    var Marionette = require("marionette"),
+        template = require("hbs!templates/mainView"),
+        OrderView = require("orderView"),
+        CONSTANTS = require("otherConstants"),
+        _ = require("underscore"),
+        $ = require("jquery");
     Object.freeze(CONSTANTS);
-    var _ = require("underscore");
-    var $ = require("jquery");
+
 
     module.exports = Marionette.CompositeView.extend({
         //el: '#application',

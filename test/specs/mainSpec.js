@@ -1,62 +1,9 @@
-define(["chai","sinon","orders","books"], function (chai, sinon, Orders, Books) {
-    var json = {"orders": [
-        {
-            "orderNumber": "0570",
-            "date": "06.06.2015",
-            "state": 0,
-            "name": "Vasiliy",
-            "address": "?. ????, ??. ?????????????, 65, ??. 11",
-            "telephone": "+38 050 123-45-56",
-            "paymentMethod": 0,
-            "display": false,
-            "summary": 182,
-            "priceDelivery": 20,
-            "receivedBonuses": 38,
-            "currency": "???",
-            "deliveryMethod": 0,
-            "items": [
-                {
-                    "title": "??????? c ??????????? ???????",
-                    "author": "???? ???????",
-                    "price": 138,
-                    "currency": "???",
-                    "discount": 0,
-                    "isBook": true,
-                    "pictureUrl": "images/itemone.png",
-                    "count": 1
-                },
-                {
-                    "title": "???????, ??????? ???????? ????????? ????? ",
-                    "author": "???? ???????",
-                    "price": 170,
-                    "currency": "???",
-                    "discount": 20,
-                    "isBook": true,
-                    "pictureUrl": "images/itemtwo.png",
-                    "count": 1
-                },
-                {
-                    "title": "?? ?????",
-                    "author": "?????",
-                    "price": 138,
-                    "currency": "???",
-                    "discount": 0,
-                    "isBook": false,
-                    "pictureUrl": "images/itemone.png",
-                    "count": 1
-                },
-                {
-                    "title": "??????? c ??????????? ???????",
-                    "author": "???? ???????",
-                    "price": 138,
-                    "currency": "???",
-                    "discount": 0,
-                    "isBook": true,
-                    "pictureUrl": "images/itemone.png",
-                    "count": 1
-                }
-            ]
-        }]};
+define(function (require, exports, module) {//["chai","sinon","orders","books"], function (chai, sinon, Orders, Books) {
+    var chai = require("chai"),
+        sinon = require("sinon"),
+        Orders = require("orders");
+
+    var json = {"orders": [{ "orderNumber": "0570", "date": "06.06.2015", "state": 0, "name": "Vasiliy", "address": "?. ????, ??. ?????????????, 65, ??. 11", "telephone": "+38 050 123-45-56", "paymentMethod": 0, "display": false, "summary": 182, "priceDelivery": 20, "receivedBonuses": 38, "currency": "???", "deliveryMethod": 0, "items": [{ "title": "??????? c ??????????? ???????", "author": "???? ???????", "price": 138, "currency": "???", "discount": 0, "isBook": true, "pictureUrl": "images/itemone.png", "count": 1}, { "title": "???????, ??????? ???????? ????????? ????? ", "author": "???? ???????", "price": 170, "currency": "???", "discount": 20, "isBook": true, "pictureUrl": "images/itemtwo.png", "count": 1}, { "title": "?? ?????", "author": "?????", "price": 138, "currency": "???", "discount": 0, "isBook": false, "pictureUrl": "images/itemone.png", "count": 1}, { "title": "??????? c ??????????? ???????", "author": "???? ???????", "price": 138, "currency": "???", "discount": 0, "isBook": true, "pictureUrl": "images/itemone.png", "count": 1 }]}]};
     sinon.stub($, 'getJSON').returns({done: sinon.stub().callsArgWith(0, json)});
     before(function () {
         this.orders = new Orders();

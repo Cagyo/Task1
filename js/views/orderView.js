@@ -1,8 +1,8 @@
 define(function(require, exports, module){
-    var Marionette = require("marionette");
-    var template = require("hbs!templates/orderView");
-    var BookView = require("bookView");
-    var CONSTANTS = require("otherConstants");
+    var Marionette = require("marionette"),
+        template = require("hbs!templates/orderView"),
+        BookView = require("bookView"),
+        CONSTANTS = require("otherConstants");
     Object.freeze(CONSTANTS);
 
     module.exports = Marionette.CompositeView.extend({

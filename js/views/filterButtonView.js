@@ -1,6 +1,6 @@
 define(function(require, exports, module){
-    var Marionette = require("marionette_node");
-    var template = require("hbs!templates/filterButtonView");
+    var Marionette = require("marionette_node"),
+        template = require("hbs!templates/filterButtonView");
 
     module.exports = Marionette.ItemView.extend({
         template: template,

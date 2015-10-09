@@ -1,9 +1,8 @@
 define(function(require, exports, module){
     var Backbone = require("backbone"),
-    Order = require("order"),
-    CONSTANTS = require("otherConstants"),
-    Books = require("books");
-
+        Order = require("order"),
+        CONSTANTS = require("otherConstants"),
+        Books = require("books");
     Object.freeze(CONSTANTS);
 
     module.exports = Backbone.Collection.extend({
