@@ -50,29 +50,4 @@ require(["chai","sinon","orders","jquery","books","mainSpec"],function(chai,sino
     };
 
     mocha.run();
-
-
-
-
-
-    //var json = $.getJSON("json/orders.json").done(function (json) {
-    //    orders.fillFromJSON(json);
-    //    var filterView = new filterOrderListView({collection: orders}).render();
-    //
-    //    //var view = new mainPageView();
-    //    //view.render();
-    //    //view.getRegion('filter').show(filterView);
-    //    //orderListView = new OrderListView({collection: orders}).render();
-    //    //this.view = orderListView;
-    //    //view.getRegion('orderList').show(orderListView);
-    //    //view.removeRegion('orderList');
-    //    //$('#ordersSection').append(view);
-    //}).fail(function () {
-    //    alert("A problem with loading json!");
-    //});
-    //    setTimeout(function () {
-
-        //},500);
-
-    //debugger;
 });

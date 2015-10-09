@@ -1,7 +1,7 @@
 define(function(require, exports, module){
     //var userChannel = Radio.channel('user');
     var Marionette = require("marionette"),
-        template = require("hbs!templates/mainView"),
+        template = require("hbs!templates/orderListView"),
         OrderView = require("orderView"),
         CONSTANTS = require("otherConstants"),
         _ = require("underscore"),
@@ -10,7 +10,6 @@ define(function(require, exports, module){
 
 
     module.exports = Marionette.CompositeView.extend({
-        //el: '#application',
         template: template,
         orderViews: [],
         childView: OrderView,
@@ -18,9 +17,9 @@ define(function(require, exports, module){
 
         childViewOptions: function (model) {
             return { collection: model.get("items") };
-        },
+        }
 
-        initialize: function() {
+        /*initialize: function() {
 
         },
 
@@ -52,6 +51,6 @@ define(function(require, exports, module){
                     $(filter).children("a:eq(0)").attr("class", "selected-filter-item");
                 }
             });
-        }
+        }*/
     });
 });
