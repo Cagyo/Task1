@@ -107,15 +107,4 @@ define(function (require, exports, module) {//["chai","sinon","orders","books"],
         });
 
     });
-
-    describe("Views", function() {
-
-        it("Views do not throw exceptions", function() {
-
-        });
-        it('should render', function () {
-
-        });
-
-    });
 });
