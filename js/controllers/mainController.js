@@ -5,7 +5,7 @@ define(function(require, exports, module){
         Orders = require("orders"),
         FilterButtons = require("filterButtons"),
         MainLayoutView = require("mainLayoutView"),
-        MainView = require("mainView"),
+        orderListView = require("orderListView"),
         FilterView = require("filterView"),
         $ = require("jquery"),
         _ = require("underscore");
@@ -30,12 +30,12 @@ define(function(require, exports, module){
 
                     this.mergeItemsWithOrders(orders,booksCollection);
 
-                    this.mainView = new MainLayoutView({collection: orders}).render();
-                    this.orderListView = new MainView({collection: orders}).render();
+                    this.mainLayoutView = new MainLayoutView({collection: orders}).render();
+                    this.orderListView = new orderListView({collection: orders}).render();
                     this.filterView = new FilterView({collection: filterButtons}).render();
 
-                    this.mainView.showChildView("orderList",this.orderListView);
-                    this.mainView.showChildView("filter", this.filterView);
+                    this.mainLayoutView.showChildView("orderList",this.orderListView);
+                    this.mainLayoutView.showChildView("filter", this.filterView);
 
                     this.currentCollection = orders;
                     this.listenTo(this.filterView, "filterApplied", this.applyFilter);

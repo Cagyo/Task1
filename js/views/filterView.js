@@ -6,20 +6,13 @@ define(function(require, exports, module){
     module.exports = Marionette.CollectionView.extend({
         template: template,
         childView: FilterButtonView,
-
+        childEvents: {
+            'filterSelected': 'selectFilter'
+        },
         selectFilter: function (e, state) {
-            //to collection
-            this.collection.map(function (filterButton) {
-                if(filterButton.get("stateNumber") !== state)
-                    filterButton.set("buttonClass", "selected-filter-item-underlined")
-            });
+            this.collection.resetButtonClassExcept(state);
             this.render();
             this.trigger("filterApplied", state);
-        },
-
-        initialize: function (options) {
-            this.on('childview:filterSelected',this.selectFilter);
-            //this.listenTo(this.childView, "childview:filterSelected", this.selectFilter);
         }
     });
 });

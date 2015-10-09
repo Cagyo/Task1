@@ -20,7 +20,7 @@ require.config({
         book: 'models/Book',
         books: 'collections/Books',
         bookView: 'views/bookView',
-        mainView: 'views/mainView',
+        orderListView: 'views/orderListView',
         mainLayoutView: 'views/mainLayoutView',
         filterView: 'views/filterView',
         filterButtonView: 'views/filterButtonView',
