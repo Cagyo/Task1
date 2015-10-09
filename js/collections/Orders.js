@@ -33,7 +33,7 @@ define(function(require, exports, module){
             });
         },
 
-        //todo: temporary for test
+        //temporary for testing
         fillFromJSON: function (json) {
             for(var i =0; i<json.orders.length; i++)
             {

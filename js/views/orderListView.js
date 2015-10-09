@@ -14,7 +14,6 @@ define(function(require, exports, module){
         orderViews: [],
         childView: OrderView,
         childViewContainer: '#ordersSection',
-
         childViewOptions: function (model) {
             return { collection: model.get("items") };
         }

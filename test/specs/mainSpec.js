@@ -37,14 +37,16 @@ define(function (require, exports, module) {//["chai","sinon","orders","books"],
             this.view = null;
             //var callback = sinon.spy();
             //Backbone.listenTo(this.view,"onRender",callback);
+
             var createView = function(){
                 var orderListView = new OrderListView();
+                orderListView.render();
             };
+            expect(createView).to.not.throw(Error);
 
             //this.view.render({collection:orders});
             //assert(callback.calledOnce, true);
             //expect(this.view.$el).ok;
-            expect(createView).to.not.throw(Error);
             //var res = view.render();
             //expect(res).to.not.throw("");
 
@@ -58,9 +60,8 @@ define(function (require, exports, module) {//["chai","sinon","orders","books"],
             expect(this.view.$el).ok;
 
         });
-        it("Multiply with 0", function() {
-            chai.assert.equal(0, 0);
-        });
+
+
 
     });
 
@@ -89,7 +90,7 @@ define(function (require, exports, module) {//["chai","sinon","orders","books"],
             chai.assert.equal(order.getOrderSummmary(), 570);
         });
 
-        it("Test discount sum in book", function() {
+        it("Test sum in book with discount", function() {
             var books = new Books(booksMock);
             var book = books.at(1);
             book.calculatePriceWithDiscount();
@@ -97,7 +98,24 @@ define(function (require, exports, module) {//["chai","sinon","orders","books"],
             expect(book.get("priceWithDiscount")).to.be.a('Number');
         });
 
+        it("Test sum in book without discount", function() {
+            var books = new Books(booksMock);
+            var book = books.at(0);
+            book.calculatePriceWithDiscount();
+            chai.assert.equal(book.get("priceWithDiscount"), 138);
+            expect(book.get("priceWithDiscount")).to.be.a('Number');
+        });
 
+    });
+
+    describe("Views", function() {
+
+        it("Views do not throw exceptions", function() {
+
+        });
+        it('should render', function () {
+
+        });
 
     });
 });
