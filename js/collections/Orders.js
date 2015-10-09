@@ -10,7 +10,7 @@ define(function(require, exports, module){
         url: 'json/v2/orders.json',
 
         initialize: function () {
-            this.on( "change:"+CONSTANTS.ORDER_DISPLAY_FIELD, this.showCurrent, this);
+            this.on("change:" + CONSTANTS.ORDER_DISPLAY_FIELD, this.showCurrent, this);
         },
 
         showCurrent: function (currentModel) {
@@ -32,6 +32,7 @@ define(function(require, exports, module){
                 return order.get("state") === state;
             });
         },
+
         //todo: temporary for test
         fillFromJSON: function (json) {
             for(var i =0; i<json.orders.length; i++)

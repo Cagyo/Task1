@@ -8,7 +8,9 @@ define(function(require, exports, module){
         orderListView = require("orderListView"),
         FilterView = require("filterView"),
         $ = require("jquery"),
-        _ = require("underscore");
+        _ = require("underscore"),
+        CONSTANTS = require("otherConstants");
+    Object.freeze(CONSTANTS);
 
     module.exports = Marionette.Object.extend({
         //initialCollection: null,
@@ -70,7 +72,7 @@ define(function(require, exports, module){
                 return child.get('state') === state;
             };
 
-            if(state !== 3)
+            if(state !== CONSTANTS.DEFAULT_STATE)
                 this.orderListView.filter = filter;
             else
                 this.orderListView.filter = null;

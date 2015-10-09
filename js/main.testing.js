@@ -7,9 +7,8 @@ require.config({
         hbs: '../lib/vendor/require-handlebars-plugin/hbs',
         marionette: '../lib/vendor/backbone.marionette/lib/backbone.marionette',
         marionette_node: '../node_modules/backbone.marionette/lib/backbone.marionette',
-        radio: '../node_modules/backbone.radio/build/backbone.radio',
         mocha: '../node_modules/mocha/mocha',
-        sinon: '../node_modules/sinon/lib/sinon',
+        sinon: '../node_modules/sinon/pkg/sinon',
         chai: '../lib/vendor/chai/chai',
         application: 'Application',
         order: 'models/Order',
@@ -27,7 +26,9 @@ require.config({
         mainController: 'controllers/mainController',
         orderConstants: 'constants/OrderConstants',
         otherConstants: 'constants/OtherConstants',
-        mainSpec: "../test/specs/mainSpec"
+        mainSpec: '../test/specs/mainSpec',
+        ordersMock: '../test/specs/orders.mock',
+        booksMock: '../test/specs/books.mock'
     },
     hbs: { // optional
         helpers: true,            // default: true
@@ -37,17 +38,5 @@ require.config({
 });
 
 require(["chai","sinon","orders","jquery","books","mainSpec"],function(chai,sinon,Orders,$,Books,MainSpec){
-    //application.start();
-    //var Example = require('modules/example');
-    //var testCase = require('mocha').describe;
-    //var pre = require('mocha').before;
-    //var assertions = require('mocha').it;
-
-    //var temp = MainSpec;
-
-    multiply = function multiply (a,b) {
-        return a*b;
-    };
-
     mocha.run();
 });

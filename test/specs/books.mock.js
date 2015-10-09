@@ -1,0 +1,3 @@
+define(function (require, exports, module) {
+    module.exports = [{ "bookId": 0, "title": "Девушка c татуировкой дракона", "author": "Стиг Ларссон", "price": 138, "currency": "грн", "discount": 0, "isBook": true, "pictureUrl": "images/itemone.png"}, { "bookId": 1, "title": "Девушка, которая взрывала воздушные замки ", "author": "Стиг Ларссон", "price": 170, "currency": "грн", "discount": 20, "isBook": true, "pictureUrl": "images/itemtwo.png"}, { "bookId": 2, "title": "Не книга", "author": "Автор", "price": 138, "currency": "грн", "discount": 0, "isBook": false, "pictureUrl": "images/itemone.png"}];
+});
