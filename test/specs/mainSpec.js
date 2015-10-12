@@ -4,9 +4,13 @@ define(function (require, exports, module) {//["chai","sinon","orders","books"],
         Orders = require("orders"),
         Books = require("books"),
         OrderListView = require("orderListView"),
-        mainController = require("mainController"),
+        MainController = require("mainController"),
         booksMock = require("booksMock"),
-        ordersMock = require("ordersMock");
+        ordersMock = require("ordersMock"),
+        filtersMock = require("filtersMock"),
+        FilterButtonView = require("filterButtonView"),
+        FilterView = require("filterView"),
+        FilterButtons = require("filterButtons");
     var assert = chai.assert,
         expect = chai.expect;
         //to = chai.to,
@@ -63,6 +67,8 @@ define(function (require, exports, module) {//["chai","sinon","orders","books"],
 
 
 
+
+
     });
 
     describe("Sinon with collections", function() {
@@ -104,6 +110,24 @@ define(function (require, exports, module) {//["chai","sinon","orders","books"],
             book.calculatePriceWithDiscount();
             chai.assert.equal(book.get("priceWithDiscount"), 138);
             expect(book.get("priceWithDiscount")).to.be.a('Number');
+        });
+
+        it('Spy on view events chain', function () {
+            var filterButtons = new FilterButtons(filtersMock);
+            var filterView = new FilterView({collection: filterButtons});
+            filterView.render();
+            var currentModel = filterButtons.at(0);
+            var filterButtonView = filterView.children.findByModel(currentModel);
+            var callback = sinon.spy();
+
+            Backbone.listenTo(filterView,"filterApplied",callback);
+            var h2Element = filterButtonView.$el.children(".inline-block-div").children("h2");
+            h2Element.click();
+            assert(callback.calledOnce, true);
+            //assert(callback.callCount, 1);
+
+
+
         });
 
     });

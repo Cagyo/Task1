@@ -1,0 +1,3 @@
+define(function (require, exports, module) {
+    module.exports = [{ "active": true, "stateClass": "allOrders", "buttonClass": "selected-filter-item", "text": "??? ??????", "stateNumber": 3}, { "stateClass": "currentOrders", "buttonClass": "selected-filter-item-underlined", "text": "???????", "stateNumber": 1}, { "stateClass": "completedOrders", "buttonClass": "selected-filter-item-underlined", "text": "???????????", "stateNumber": 2}, { "stateClass": "cancelledOrders", "buttonClass": "selected-filter-item-underlined", "text": "??????????", "stateNumber": 0}];
+});

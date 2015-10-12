@@ -28,6 +28,7 @@ require.config({
         otherConstants: 'constants/OtherConstants',
         mainSpec: '../test/specs/mainSpec',
         ordersMock: '../test/specs/orders.mock',
+        filtersMock: '../test/specs/filters.mock',
         booksMock: '../test/specs/books.mock'
     },
     hbs: { // optional
